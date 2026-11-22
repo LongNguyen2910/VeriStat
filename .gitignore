@@ -1,0 +1,16 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Superpowers scratch & internal docs
+.superpowers/
+docs/superpowers/
+
+# Large raw source files (keep local, document provenance in DATASHEET.md)
+# Uncomment if team prefers not to push large PDFs to GitHub
+# *.pdf
+# *.xlsx

@@ -1,0 +1,383 @@
+# Danh sách 31 bảng chốt sau Pha 1 EDA & Data Audit (Task 1)
+# Nguồn 1: NG-TOAN-QUOC-2025-1.pdf (Niên giám Thống kê Toàn quốc 2025, 63 tỉnh + 6 vùng + Cả nước)
+# Nguồn 2: 2.-Bieu-thang-10.2026.xlsx (Báo cáo KTXH tháng 10/2026, 34 tỉnh sau sáp nhập 2025 + Cả nước)
+
+sources:
+  pdf_2025: "NG-TOAN-QUOC-2025-1.pdf"
+  excel_2026: "2.-Bieu-thang-10.2026.xlsx"
+
+glossary_sections:
+  - domain: "dan_so"
+    source: "pdf_2025"
+    pages: [68, 69, 70, 71, 72]
+    title: "Giải thích thuật ngữ, nội dung và phương pháp tính chỉ tiêu Dân số và Lao động"
+  - domain: "doanh_nghiep"
+    source: "pdf_2025"
+    pages: [352, 353, 354, 355]
+    title: "Giải thích thuật ngữ, nội dung và phương pháp tính chỉ tiêu Doanh nghiệp"
+  - domain: "giao_duc"
+    source: "pdf_2025"
+    pages: [832, 833, 834, 835]
+    title: "Giải thích thuật ngữ, nội dung và phương pháp tính chỉ tiêu Giáo dục"
+  - domain: "y_te"
+    source: "pdf_2025"
+    pages: [864, 865, 866]
+    title: "Giải thích thuật ngữ, nội dung và phương pháp tính chỉ tiêu Y tế và Mức sống dân cư"
+
+tables:
+  # ==================== 1. DÂN SỐ (6 bảng PDF) ====================
+  - table_id: "NG2025_T015"
+    source: "pdf_2025"
+    pages: [102, 103]
+    domain: "dan_so"
+    title: "Dân số và mật độ dân số năm 2025 phân theo địa phương"
+    unit: "nghìn người; người/km2"
+    reporting_period: "2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T017"
+    source: "pdf_2025"
+    pages: [105, 106]
+    domain: "dan_so"
+    title: "Dân số trung bình phân theo địa phương"
+    unit: "nghìn người"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T020"
+    source: "pdf_2025"
+    pages: [111, 112]
+    domain: "dan_so"
+    title: "Dân số thành thị trung bình phân theo địa phương"
+    unit: "nghìn người"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T026"
+    source: "pdf_2025"
+    pages: [120, 121]
+    domain: "dan_so"
+    title: "Tỷ suất sinh thô phân theo địa phương"
+    unit: "‰"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T034"
+    source: "pdf_2025"
+    pages: [134, 135]
+    domain: "dan_so"
+    title: "Tỷ lệ tăng dân số phân theo địa phương"
+    unit: "%"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T039"
+    source: "pdf_2025"
+    pages: [143, 144]
+    domain: "dan_so"
+    title: "Tuổi thọ trung bình tính từ lúc sinh phân theo địa phương"
+    unit: "năm"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  # ==================== 2. LAO ĐỘNG (5 bảng PDF + 1 sheet Excel) ====================
+  - table_id: "NG2025_T046"
+    source: "pdf_2025"
+    pages: [153, 154]
+    domain: "lao_dong"
+    title: "Lực lượng lao động từ 15 tuổi trở lên phân theo địa phương"
+    unit: "nghìn người"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T053"
+    source: "pdf_2025"
+    pages: [163, 164]
+    domain: "lao_dong"
+    title: "Số lao động có việc làm trong nền kinh tế phân theo địa phương"
+    unit: "nghìn người"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T061"
+    source: "pdf_2025"
+    pages: [173, 174]
+    domain: "lao_dong"
+    title: "Tỷ lệ lao động từ 15 tuổi trở lên đã qua đào tạo phân theo địa phương"
+    unit: "%"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T064"
+    source: "pdf_2025"
+    pages: [179, 180]
+    domain: "lao_dong"
+    title: "Năng suất lao động phân theo địa phương"
+    unit: "triệu đồng/lao động"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T068"
+    source: "pdf_2025"
+    pages: [184, 185]
+    domain: "lao_dong"
+    title: "Tỷ lệ thất nghiệp trong độ tuổi lao động phân theo địa phương"
+    unit: "%"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "B1026_S05"
+    source: "excel_2026"
+    sheet_name: "5. LĐCN_DP"
+    domain: "lao_dong"
+    title: "Chỉ số sử dụng lao động của doanh nghiệp công nghiệp phân theo địa phương tháng 10/2026"
+    unit: "%"
+    reporting_period: "10/2026"
+    scope: "Cả nước, 34 tỉnh/thành sau sáp nhập 2025"
+    has_geo: true
+    admin_scheme: "34_provinces_2025"
+
+  # ==================== 3. GIÁO DỤC (6 bảng PDF) ====================
+  - table_id: "NG2025_T331"
+    source: "pdf_2025"
+    pages: [847]
+    domain: "giao_duc"
+    title: "Số trường học và lớp học phổ thông tại thời điểm 30/9"
+    unit: "trường; lớp"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T332"
+    source: "pdf_2025"
+    pages: [848, 849]
+    domain: "giao_duc"
+    title: "Số trường học và lớp học phổ thông phân theo loại trường"
+    unit: "trường; lớp"
+    reporting_period: "2020-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T333"
+    source: "pdf_2025"
+    pages: [850]
+    domain: "giao_duc"
+    title: "Số giáo viên và học sinh phổ thông tại thời điểm 30/9"
+    unit: "nghìn người"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T335"
+    source: "pdf_2025"
+    pages: [853]
+    domain: "giao_duc"
+    title: "Số nữ giáo viên và nữ học sinh trong các trường phổ thông"
+    unit: "nghìn người"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T336"
+    source: "pdf_2025"
+    pages: [854]
+    domain: "giao_duc"
+    title: "Số học sinh phổ thông bình quân một lớp và một giáo viên"
+    unit: "học sinh/lớp; học sinh/giáo viên"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T338"
+    source: "pdf_2025"
+    pages: [856]
+    domain: "giao_duc"
+    title: "Tỷ lệ phòng học kiên cố phân theo cấp học"
+    unit: "%"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  # ==================== 4. Y TẾ & MỨC SỐNG DÂN CƯ (6 bảng PDF) ====================
+  - table_id: "NG2025_T339"
+    source: "pdf_2025"
+    pages: [898, 899]
+    domain: "y_te"
+    title: "Một số chỉ tiêu xã hội chủ yếu"
+    unit: "nhiều đơn vị"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T340"
+    source: "pdf_2025"
+    pages: [900]
+    domain: "y_te"
+    title: "Số giường bệnh và số bác sĩ"
+    unit: "nghìn giường; nghìn bác sĩ"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T341"
+    source: "pdf_2025"
+    pages: [901]
+    domain: "y_te"
+    title: "Tỷ lệ trẻ em dưới 5 tuổi bị suy dinh dưỡng phân theo giới tính và thành thị, nông thôn"
+    unit: "%"
+    reporting_period: "2015-2025"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "NG2025_T356"
+    source: "pdf_2025"
+    pages: [923, 924]
+    domain: "y_te"
+    title: "Thu nhập bình quân một lao động đang làm việc phân theo địa phương"
+    unit: "nghìn đồng/tháng"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T366"
+    source: "pdf_2025"
+    pages: [935, 936]
+    domain: "y_te"
+    title: "Tỷ lệ hộ nghèo phân theo địa phương"
+    unit: "%"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T371"
+    source: "pdf_2025"
+    pages: [941, 942]
+    domain: "y_te"
+    title: "Tỷ lệ dân số được sử dụng nguồn nước hợp vệ sinh phân theo địa phương"
+    unit: "%"
+    reporting_period: "2020-2025"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  # ==================== 5. DOANH NGHIỆP (4 bảng PDF + 4 sheet Excel) ====================
+  - table_id: "NG2025_T136"
+    source: "pdf_2025"
+    pages: [379, 380]
+    domain: "doanh_nghiep"
+    title: "Số doanh nghiệp đang hoạt động có kết quả SXKD tại thời điểm 31/12 hàng năm phân theo địa phương"
+    unit: "doanh nghiệp"
+    reporting_period: "2019-2024"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T139"
+    source: "pdf_2025"
+    pages: [388, 389]
+    domain: "doanh_nghiep"
+    title: "Tổng số lao động trong các doanh nghiệp đang hoạt động có kết quả SXKD phân theo địa phương"
+    unit: "người"
+    reporting_period: "2019-2024"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T151"
+    source: "pdf_2025"
+    pages: [424, 425]
+    domain: "doanh_nghiep"
+    title: "Doanh thu thuần SXKD của các doanh nghiệp đang hoạt động phân theo địa phương"
+    unit: "tỷ đồng"
+    reporting_period: "2019-2024"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "NG2025_T163"
+    source: "pdf_2025"
+    pages: [486, 487]
+    domain: "doanh_nghiep"
+    title: "Thu nhập bình quân một tháng của người lao động trong doanh nghiệp phân theo địa phương"
+    unit: "nghìn đồng"
+    reporting_period: "2019-2024"
+    scope: "Cả nước, 6 vùng, 63 tỉnh/thành"
+    has_geo: true
+    admin_scheme: "63_provinces"
+
+  - table_id: "B1026_S06"
+    source: "excel_2026"
+    sheet_name: "6.Chi tieu DN"
+    domain: "doanh_nghiep"
+    title: "Một số chỉ tiêu về doanh nghiệp 10 tháng năm 2026"
+    unit: "doanh nghiệp; tỷ đồng; %"
+    reporting_period: "10T/2026"
+    scope: "Cả nước"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "B1026_S07"
+    source: "excel_2026"
+    sheet_name: "7.DN DK thanh lap"
+    domain: "doanh_nghiep"
+    title: "Doanh nghiệp đăng ký thành lập mới 10 tháng năm 2026"
+    unit: "doanh nghiệp; tỷ đồng"
+    reporting_period: "10T/2026"
+    scope: "Cả nước theo ngành/vùng"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "B1026_S08"
+    source: "excel_2026"
+    sheet_name: "8.DN quay lai hoat dong"
+    domain: "doanh_nghiep"
+    title: "Doanh nghiệp quay trở lại hoạt động 10 tháng năm 2026"
+    unit: "doanh nghiệp"
+    reporting_period: "10T/2026"
+    scope: "Cả nước theo ngành/vùng"
+    has_geo: false
+    admin_scheme: "national"
+
+  - table_id: "B1026_S10"
+    source: "excel_2026"
+    sheet_name: "10.DN giải thể"
+    domain: "doanh_nghiep"
+    title: "Doanh nghiệp hoàn tất thủ tục giải thể 10 tháng năm 2026"
+    unit: "doanh nghiệp"
+    reporting_period: "10T/2026"
+    scope: "Cả nước theo ngành/vùng"
+    has_geo: false
+    admin_scheme: "national"

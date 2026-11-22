@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "veristat"
+version = "0.1.0"
+description = "VeriStat — Tác tử phân tích số liệu thống kê kinh tế - xã hội Việt Nam có đáp số kiểm chứng được (Đề tài 18)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pymupdf>=1.24.0",
+    "pdfplumber>=0.11.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.0",
+    "numpy>=2.0.0",
+    "scipy>=1.14.0",
+    "pyyaml>=6.0.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.0",
+    "jupyter>=1.1.0",
+    "ipykernel>=6.29.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/veristat"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

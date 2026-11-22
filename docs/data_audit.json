@@ -1,0 +1,1594 @@
+{
+  "audit_date": "2026-11-23",
+  "sources": {
+    "pdf_2025": {
+      "file": "NG-TOAN-QUOC-2025-1.pdf",
+      "pages": 1557,
+      "cover_offset": 1,
+      "toc": [
+        {
+          "level": 1,
+          "title": "00. LND Tong quan chung 2025_b3",
+          "page": 1,
+          "pdf_page": 2
+        },
+        {
+          "level": 1,
+          "title": "01. DV hanh chinh- Dat dai-Khi hau 2025_b3",
+          "page": 41,
+          "pdf_page": 42
+        },
+        {
+          "level": 1,
+          "title": "02. Dan so - Lao dong (2025)_b3",
+          "page": 61,
+          "pdf_page": 62
+        },
+        {
+          "level": 1,
+          "title": "03. Tai khoan Quoc gia (2025)_b3",
+          "page": 193,
+          "pdf_page": 194
+        },
+        {
+          "level": 1,
+          "title": "04. CN, Dau tu va xay dung (2025)_b3",
+          "page": 261,
+          "pdf_page": 262
+        },
+        {
+          "level": 1,
+          "title": "05. Doanh nghiep (2025)_b3",
+          "page": 345,
+          "pdf_page": 346
+        },
+        {
+          "level": 1,
+          "title": "06. Nong nghiep (2025)_b3",
+          "page": 525,
+          "pdf_page": 526
+        },
+        {
+          "level": 1,
+          "title": "07. Thuong mai, du lich (2025)_b3",
+          "page": 663,
+          "pdf_page": 664
+        },
+        {
+          "level": 1,
+          "title": "08. Chi so gia (2025)_b3",
+          "page": 723,
+          "pdf_page": 724
+        },
+        {
+          "level": 1,
+          "title": "09. Van tai - BCVT (2025)_b3",
+          "page": 785,
+          "pdf_page": 786
+        },
+        {
+          "level": 1,
+          "title": "10. Giao duc (2025)_b3",
+          "page": 829,
+          "pdf_page": 830
+        },
+        {
+          "level": 1,
+          "title": "11. Y te, VH-TT, Muc song dan cu (2025)_b3",
+          "page": 857,
+          "pdf_page": 858
+        },
+        {
+          "level": 1,
+          "title": "12. Thong ke nuoc ngoai (2025)_b3",
+          "page": 989,
+          "pdf_page": 990
+        },
+        {
+          "level": 1,
+          "title": "13. Phu luc (2025)_b3",
+          "page": 1141,
+          "pdf_page": 1142
+        }
+      ]
+    },
+    "excel_2026": {
+      "file": "2.-Bieu-thang-10.2026.xlsx",
+      "sheets_count": 20,
+      "sheets": [
+        "1.Nong nghiep",
+        "2.IIPthang",
+        "3.SPCNthang",
+        "4.LĐCN",
+        "5. LĐCN_DP",
+        "6.Chi tieu DN",
+        "7.DN DK thanh lap",
+        "8.DN quay lai hoat dong",
+        "9.DN Ngừng có thời hạn",
+        "10.DN giải thể",
+        "11.VĐT",
+        "12.FDI",
+        "13. Tongmuc",
+        "14.XK tháng",
+        "15.NK tháng",
+        "16.CPI",
+        "17. VT HK",
+        "18. VT HH",
+        "19. KQT",
+        "20. XHMT"
+      ]
+    }
+  },
+  "curated_summary": {
+    "total_tables": 32,
+    "by_domain": {
+      "dan_so": 6,
+      "lao_dong": 6,
+      "giao_duc": 6,
+      "y_te": 6,
+      "doanh_nghiep": 8
+    },
+    "by_source": {
+      "pdf_2025": 27,
+      "excel_2026": 5
+    }
+  },
+  "findings": {
+    "pdf_number_format": "Vietnamese decimal comma without thousands separator (e.g. 102345,3), footnotes like (*)",
+    "missing_markers": [
+      "..",
+      "...",
+      "-",
+      "–",
+      "x",
+      "Sơ bộ"
+    ],
+    "geo_structure_pdf_2025": "CẢ NƯỚC - WHOLE COUNTRY + 6 socio-economic regions + 63 provinces (Thừa Thiên Huế already named Huế)",
+    "geo_structure_excel_2026": "CẢ NƯỚC + 34 provinces after 2025 Vietnam provincial merger",
+    "excel_2026_geo_entities": [
+      "CẢ NƯỚC",
+      "Hà Nội",
+      "Bắc Ninh",
+      "Quảng Ninh",
+      "Hải Phòng",
+      "Hưng Yên",
+      "Ninh Bình",
+      "Cao Bằng",
+      "Tuyên Quang",
+      "Lào Cai",
+      "Thái Nguyên",
+      "Lạng Sơn",
+      "Phú Thọ",
+      "Điện Biên",
+      "Lai Châu",
+      "Sơn La",
+      "Thanh Hóa",
+      "Nghệ An",
+      "Hà Tĩnh",
+      "Quảng Trị",
+      "Huế",
+      "Đà Nẵng",
+      "Quảng Ngãi",
+      "Gia Lai",
+      "Khánh Hòa",
+      "Đắk Lắk",
+      "Lâm Đồng",
+      "Tây Ninh",
+      "Đồng Nai",
+      "TP. Hồ Chí Minh",
+      "Vĩnh Long",
+      "Đồng Tháp",
+      "An Giang",
+      "Cần Thơ",
+      "Cà Mau"
+    ],
+    "glossary_sections_available": 4
+  },
+  "auto_scanned_pdf_catalog": {
+    "total_tables_scanned": 173,
+    "by_chapter": {
+      "dan_so_lao_dong": {
+        "total": 60,
+        "with_geo": 34
+      },
+      "doanh_nghiep": {
+        "total": 46,
+        "with_geo": 13
+      },
+      "giao_duc": {
+        "total": 11,
+        "with_geo": 0
+      },
+      "y_te_msdc": {
+        "total": 56,
+        "with_geo": 38
+      }
+    },
+    "tables": [
+      {
+        "table_num": 15,
+        "title": "Dân số và mật độ dân số năm 2025 phân theo địa phương",
+        "book_page": 101,
+        "pdf_page": 102,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 16,
+        "title": "Dân số trung bình phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 103,
+        "pdf_page": 104,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 17,
+        "title": "Dân số trung bình phân theo địa phương",
+        "book_page": 104,
+        "pdf_page": 105,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 18,
+        "title": "Dân số nam trung bình phân theo địa phương",
+        "book_page": 106,
+        "pdf_page": 107,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 19,
+        "title": "Dân số nữ trung bình phân theo địa phương",
+        "book_page": 108,
+        "pdf_page": 109,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 20,
+        "title": "Dân số thành thị trung bình phân theo địa phương",
+        "book_page": 110,
+        "pdf_page": 111,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 21,
+        "title": "Dân số nông thôn trung bình phân theo địa phương",
+        "book_page": 112,
+        "pdf_page": 113,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 22,
+        "title": "Tỷ số giới tính phân theo thành thị, nông thôn",
+        "book_page": 114,
+        "pdf_page": 115,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 23,
+        "title": "Tỷ số giới tính của dân số phân theo địa phương",
+        "book_page": 115,
+        "pdf_page": 116,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 24,
+        "title": "Tỷ số giới tính khi sinh phân theo vùng",
+        "book_page": 117,
+        "pdf_page": 118,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 25,
+        "title": "Tỷ suất sinh thô, tỷ suất chết thô và tỷ lệ tăng tự nhiên của dân số phân theo thành thị, nông thôn",
+        "book_page": 118,
+        "pdf_page": 119,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 26,
+        "title": "Tỷ suất sinh thô phân theo địa phương",
+        "book_page": 119,
+        "pdf_page": 120,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 27,
+        "title": "Tỷ suất chết thô phân theo địa phương",
+        "book_page": 121,
+        "pdf_page": 122,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 28,
+        "title": "Tỷ lệ tăng dân số tự nhiên phân theo địa phương",
+        "book_page": 123,
+        "pdf_page": 124,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 29,
+        "title": "Tổng tỷ suất sinh phân theo thành thị, nông thôn",
+        "book_page": 125,
+        "pdf_page": 126,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 30,
+        "title": "Tổng tỷ suất sinh phân theo địa phương",
+        "book_page": 126,
+        "pdf_page": 127,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 31,
+        "title": "Tỷ suất chết của trẻ em phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 128,
+        "pdf_page": 129,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 32,
+        "title": "Tỷ suất chết của trẻ em dưới 01 tuổi phân theo địa phương",
+        "book_page": 129,
+        "pdf_page": 130,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 33,
+        "title": "Tỷ suất chết của trẻ em dưới 05 tuổi phân theo địa phương",
+        "book_page": 131,
+        "pdf_page": 132,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 34,
+        "title": "Tỷ lệ tăng dân số phân theo địa phương",
+        "book_page": 133,
+        "pdf_page": 134,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 35,
+        "title": "Tỷ suất nhập cư phân theo địa phương",
+        "book_page": 135,
+        "pdf_page": 136,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 36,
+        "title": "Tỷ suất xuất cư phân theo địa phương",
+        "book_page": 137,
+        "pdf_page": 138,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 37,
+        "title": "Tỷ suất di cư thuần phân theo địa phương",
+        "book_page": 139,
+        "pdf_page": 140,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 38,
+        "title": "Tuổi thọ trung bình tính từ lúc sinh phân theo giới tính, phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 141,
+        "pdf_page": 142,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 39,
+        "title": "Tuổi thọ trung bình tính từ lúc sinh phân theo địa phương",
+        "book_page": 142,
+        "pdf_page": 143,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 40,
+        "title": "Tuổi kết hôn trung bình lần đầu phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 144,
+        "pdf_page": 145,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 41,
+        "title": "Tuổi kết hôn trung bình lần đầu phân theo địa phương",
+        "book_page": 145,
+        "pdf_page": 146,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 42,
+        "title": "Tỷ lệ trẻ em dưới 05 tuổi được đăng ký khai sinh phân theo giới tính và phân theo vùng",
+        "book_page": 147,
+        "pdf_page": 148,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 43,
+        "title": "Tỷ lệ trẻ em dưới 05 tuổi được đăng ký khai sinh phân theo địa phương",
+        "book_page": 148,
+        "pdf_page": 149,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 44,
+        "title": "Lực lượng lao động từ 15 tuổi trở lên phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 150,
+        "pdf_page": 151,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 45,
+        "title": "Lực lượng lao động từ 15 tuổi trở lên phân theo nhóm tuổi",
+        "book_page": 151,
+        "pdf_page": 152,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 46,
+        "title": "Lực lượng lao động từ 15 tuổi trở lên phân theo địa phương",
+        "book_page": 152,
+        "pdf_page": 153,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 47,
+        "title": "Số lao động có việc làm trong nền kinh tế phân theo loại hình kinh tế",
+        "book_page": 154,
+        "pdf_page": 155,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 48,
+        "title": "Số lao động có việc làm trong nền kinh tế phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 155,
+        "pdf_page": 156,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 49,
+        "title": "Số lao động có việc làm trong nền kinh tế phân theo giới tính và phân theo nhóm tuổi",
+        "book_page": 156,
+        "pdf_page": 157,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 50,
+        "title": "Số lao động có việc làm trong nền kinh tế phân theo ngành kinh tế",
+        "book_page": 157,
+        "pdf_page": 158,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 51,
+        "title": "Cơ cấu lao động có việc làm trong nền kinh tế phân theo ngành kinh tế",
+        "book_page": 159,
+        "pdf_page": 160,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 52,
+        "title": "Số lao động có việc làm trong nền kinh tế phân theo nghề nghiệp và phân theo vị thế việc làm",
+        "book_page": 161,
+        "pdf_page": 162,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 53,
+        "title": "Số lao động có việc làm trong nền kinh tế phân theo địa phương",
+        "book_page": 162,
+        "pdf_page": 163,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 54,
+        "title": "Tỷ lệ lao động có việc làm phi chính thức phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 164,
+        "pdf_page": 165,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 55,
+        "title": "Tỷ lệ lao động có việc làm phi chính thức phân theo nhóm tuổi và phân theo trình độ chuyên môn kỹ thuật",
+        "book_page": 165,
+        "pdf_page": 166,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 56,
+        "title": "Tỷ lệ lao động có việc làm phi chính thức phân theo khu vực kinh tế",
+        "book_page": 166,
+        "pdf_page": 167,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 57,
+        "title": "Tỷ lệ lao động có việc làm phi chính thức phân theo nghề nghiệp",
+        "book_page": 167,
+        "pdf_page": 168,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 58,
+        "title": "Tỷ lệ lao động có việc làm phi chính thức phân theo địa phương",
+        "book_page": 168,
+        "pdf_page": 169,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 59,
+        "title": "Tỷ lệ lao động đã qua đào tạo phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 170,
+        "pdf_page": 171,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 60,
+        "title": "Tỷ lệ lao động từ 15 tuổi trở lên đã qua đào tạo phân theo nhóm tuổi và phân theo trình độ chuyên môn kỹ thuật",
+        "book_page": 171,
+        "pdf_page": 172,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 61,
+        "title": "Tỷ lệ lao động từ 15 tuổi trở lên đã qua đào tạo phân theo địa phương",
+        "book_page": 172,
+        "pdf_page": 173,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 62,
+        "title": "Tỷ lệ lao động có việc làm trong nền kinh tế đã qua đào tạo phân theo ngành kinh tế",
+        "book_page": 174,
+        "pdf_page": 175,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 63,
+        "title": "Năng suất lao động phân theo ngành kinh tế",
+        "book_page": 176,
+        "pdf_page": 177,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 64,
+        "title": "Năng suất lao động phân theo địa phương",
+        "book_page": 178,
+        "pdf_page": 179,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 65,
+        "title": "Tỷ lệ thất nghiệp trong độ tuổi lao động phân theo vùng và phân theo thành thị, nông thôn",
+        "book_page": 180,
+        "pdf_page": 181,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 66,
+        "title": "Tỷ lệ thất nghiệp trong độ tuổi lao động phân theo nhóm tuổi và phân theo trình độ chuyên môn kỹ thuật",
+        "book_page": 181,
+        "pdf_page": 182,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 67,
+        "title": "Tỷ lệ thất nghiệp trong độ tuổi lao động phân theo vùng và phân theo giới tính",
+        "book_page": 182,
+        "pdf_page": 183,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 68,
+        "title": "Tỷ lệ thất nghiệp trong độ tuổi lao động phân theo địa phương",
+        "book_page": 183,
+        "pdf_page": 184,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 69,
+        "title": "Tỷ lệ thiếu việc làm trong độ tuổi lao động phân theo vùng và phân theo thành thị, nông thôn",
+        "book_page": 185,
+        "pdf_page": 186,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 70,
+        "title": "Tỷ lệ thiếu việc làm trong độ tuổi lao động phân theo vùng và phân theo giới tính",
+        "book_page": 186,
+        "pdf_page": 187,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 71,
+        "title": "Tỷ lệ thiếu việc làm trong độ tuổi lao động phân theo nhóm tuổi và phân theo trình độ chuyên môn kỹ thuật",
+        "book_page": 187,
+        "pdf_page": 188,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 72,
+        "title": "Tỷ lệ thiếu việc làm trong độ tuổi lao động phân theo loại hình kinh tế",
+        "book_page": 188,
+        "pdf_page": 189,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 73,
+        "title": "Tỷ lệ thiếu việc làm trong độ tuổi lao động phân theo khu vực kinh tế",
+        "book_page": 189,
+        "pdf_page": 190,
+        "domain": "dan_so_lao_dong",
+        "has_geo": false
+      },
+      {
+        "table_num": 74,
+        "title": "Tỷ lệ thiếu việc làm trong độ tuổi lao động phân theo địa phương",
+        "book_page": 190,
+        "pdf_page": 191,
+        "domain": "dan_so_lao_dong",
+        "has_geo": true
+      },
+      {
+        "table_num": 132,
+        "title": "Số doanh nghiệp đăng ký thành lập mới phân theo ngành kinh tế",
+        "book_page": 369,
+        "pdf_page": 370,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 133,
+        "title": "Số doanh nghiệp đang hoạt động tại thời điểm 31/12 hàng năm phân theo ngành kinh tế",
+        "book_page": 370,
+        "pdf_page": 371,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 134,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo loại hình doanh nghiệp",
+        "book_page": 371,
+        "pdf_page": 372,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 135,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo ngành kinh tế",
+        "book_page": 372,
+        "pdf_page": 373,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 136,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo địa phương",
+        "book_page": 378,
+        "pdf_page": 379,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 137,
+        "title": "Tổng số lao động trong các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo loại hình doanh nghiệp",
+        "book_page": 380,
+        "pdf_page": 381,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 138,
+        "title": "Tổng số lao động trong các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo ngành kinh tế",
+        "book_page": 381,
+        "pdf_page": 382,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 139,
+        "title": "Tổng số lao động trong các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo địa phương",
+        "book_page": 387,
+        "pdf_page": 388,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 140,
+        "title": "Số lao động nữ trong các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo loại hình doanh nghiệp",
+        "book_page": 389,
+        "pdf_page": 390,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 141,
+        "title": "Số lao động nữ trong các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo ngành kinh tế",
+        "book_page": 390,
+        "pdf_page": 391,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 142,
+        "title": "Số lao động nữ trong các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo địa phương",
+        "book_page": 396,
+        "pdf_page": 397,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 143,
+        "title": "Vốn sản xuất kinh doanh bình quân hàng năm của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo loại hình doanh nghiệp",
+        "book_page": 398,
+        "pdf_page": 399,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 144,
+        "title": "Vốn sản xuất kinh doanh bình quân hàng năm của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo ngành kinh tế",
+        "book_page": 399,
+        "pdf_page": 400,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 145,
+        "title": "Vốn sản xuất kinh doanh bình quân hàng năm của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo địa phương",
+        "book_page": 405,
+        "pdf_page": 406,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 146,
+        "title": "Giá trị tài sản cố định và đầu tư tài chính dài hạn của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo loại hình doanh nghiệp",
+        "book_page": 407,
+        "pdf_page": 408,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 147,
+        "title": "Giá trị tài sản cố định và đầu tư tài chính dài hạn của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo ngành kinh tế",
+        "book_page": 408,
+        "pdf_page": 409,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 148,
+        "title": "Giá trị tài sản cố định và đầu tư tài chính dài hạn của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12 hàng năm phân theo địa phương",
+        "book_page": 414,
+        "pdf_page": 415,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 149,
+        "title": "Doanh thu thuần sản xuất kinh doanh của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo loại hình doanh nghiệp",
+        "book_page": 416,
+        "pdf_page": 417,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 150,
+        "title": "Doanh thu thuần sản xuất kinh doanh của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo ngành kinh tế",
+        "book_page": 417,
+        "pdf_page": 418,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 151,
+        "title": "Doanh thu thuần sản xuất kinh doanh của các doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo địa phương",
+        "book_page": 423,
+        "pdf_page": 424,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 152,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12/2024 phân theo quy mô lao động và phân theo loại hình doanh nghiệp",
+        "book_page": 425,
+        "pdf_page": 426,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 153,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12/2024 phân theo quy mô lao động và phân theo ngành kinh tế",
+        "book_page": 427,
+        "pdf_page": 428,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 154,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12/2024 phân theo quy mô lao động và phân theo địa phương",
+        "book_page": 445,
+        "pdf_page": 446,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 155,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12/2024 phân theo quy mô vốn và phân theo loại hình doanh nghiệp",
+        "book_page": 449,
+        "pdf_page": 450,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 156,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12/2024 phân theo quy mô vốn và phân theo ngành kinh tế",
+        "book_page": 451,
+        "pdf_page": 452,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 157,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh tại thời điểm 31/12/2024 phân theo quy mô vốn và phân theo địa phương",
+        "book_page": 465,
+        "pdf_page": 466,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 158,
+        "title": "Tổng thu nhập của người lao động trong doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo loại hình doanh nghiệp",
+        "book_page": 469,
+        "pdf_page": 470,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 159,
+        "title": "Tổng thu nhập của người lao động trong doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo ngành kinh tế",
+        "book_page": 470,
+        "pdf_page": 471,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 160,
+        "title": "Tổng thu nhập của người lao động trong doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo địa phương",
+        "book_page": 476,
+        "pdf_page": 477,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 161,
+        "title": "Thu nhập bình quân một tháng của người lao động trong doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo loại hình doanh nghiệp",
+        "book_page": 478,
+        "pdf_page": 479,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 162,
+        "title": "Thu nhập bình quân một tháng của người lao động trong doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo ngành kinh tế",
+        "book_page": 479,
+        "pdf_page": 480,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 163,
+        "title": "Thu nhập bình quân một tháng của người lao động trong doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo địa phương",
+        "book_page": 485,
+        "pdf_page": 486,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 164,
+        "title": "Lợi nhuận trước thuế của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo loại hình doanh nghiệp",
+        "book_page": 487,
+        "pdf_page": 488,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 165,
+        "title": "Lợi nhuận trước thuế của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo ngành kinh tế",
+        "book_page": 488,
+        "pdf_page": 489,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 166,
+        "title": "Lợi nhuận trước thuế của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo địa phương",
+        "book_page": 494,
+        "pdf_page": 495,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 167,
+        "title": "Tỷ suất lợi nhuận của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo loại hình doanh nghiệp",
+        "book_page": 496,
+        "pdf_page": 497,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 168,
+        "title": "Tỷ suất lợi nhuận của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo ngành kinh tế",
+        "book_page": 497,
+        "pdf_page": 498,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 169,
+        "title": "Tỷ suất lợi nhuận của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo địa phương",
+        "book_page": 503,
+        "pdf_page": 504,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 170,
+        "title": "Trang bị tài sản cố định bình quân 1 lao động của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo loại hình doanh nghiệp và phân theo ngành kinh tế",
+        "book_page": 505,
+        "pdf_page": 506,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 171,
+        "title": "Trang bị tài sản cố định bình quân 1 lao động của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh phân theo địa phương",
+        "book_page": 506,
+        "pdf_page": 507,
+        "domain": "doanh_nghiep",
+        "has_geo": true
+      },
+      {
+        "table_num": 172,
+        "title": "Số doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh ngành chế biến, chế tạo tại thời điểm 31/12 hàng năm phân theo trình độ công nghệ",
+        "book_page": 508,
+        "pdf_page": 509,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 173,
+        "title": "Số lao động của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh ngành chế biến, chế tạo tại thời điểm 31/12 hàng năm phân theo trình độ công nghệ",
+        "book_page": 509,
+        "pdf_page": 510,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 174,
+        "title": "Nguồn vốn của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh ngành chế biến, chế tạo tại thời điểm 31/12 hàng năm phân theo trình độ công nghệ",
+        "book_page": 510,
+        "pdf_page": 511,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 175,
+        "title": "Giá trị TSCĐ và đầu tư dài hạn của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh ngành chế biến, chế tạo tại thời điểm 31/12 hàng năm phân theo trình độ công nghệ",
+        "book_page": 511,
+        "pdf_page": 512,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 176,
+        "title": "Doanh thu thuần của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh ngành chế biến, chế tạo tại thời điểm 31/12 hàng năm phân theo trình độ công nghệ",
+        "book_page": 512,
+        "pdf_page": 513,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 177,
+        "title": "Lợi nhuận trước thuế của doanh nghiệp đang hoạt động có kết quả sản xuất kinh doanh ngành chế biến, chế tạo tại thời điểm 31/12 hàng năm phân theo trình độ công nghệ",
+        "book_page": 513,
+        "pdf_page": 514,
+        "domain": "doanh_nghiep",
+        "has_geo": false
+      },
+      {
+        "table_num": 328,
+        "title": "Số người hoạt động nghiên cứu khoa học và phát triển công nghệ",
+        "book_page": 843,
+        "pdf_page": 844,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 329,
+        "title": "Số bằng sáng chế được cấp văn bằng bảo hộ",
+        "book_page": 844,
+        "pdf_page": 845,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 330,
+        "title": "Chi cho nghiên cứu và phát triển khoa học công nghệ",
+        "book_page": 845,
+        "pdf_page": 846,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 331,
+        "title": "Số trường học và lớp học phổ thông tại thời điểm 30/9",
+        "book_page": 846,
+        "pdf_page": 847,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 332,
+        "title": "Số trường học và lớp học phổ thông tại thời điểm 30/9 phân theo loại trường",
+        "book_page": 847,
+        "pdf_page": 848,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 333,
+        "title": "Số giáo viên và học sinh phổ thông tại thời điểm 30/9",
+        "book_page": 849,
+        "pdf_page": 850,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 334,
+        "title": "Số giáo viên và học sinh phổ thông tại thời điểm 30/9 phân theo loại trường",
+        "book_page": 850,
+        "pdf_page": 851,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 335,
+        "title": "Số nữ giáo viên và nữ học sinh trong các trường phổ thông tại thời điểm 30/9",
+        "book_page": 852,
+        "pdf_page": 853,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 336,
+        "title": "Số học sinh phổ thông bình quân một lớp học và số học sinh phổ thông bình quân một giáo viên tại thời điểm 30/9",
+        "book_page": 853,
+        "pdf_page": 854,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 337,
+        "title": "Số học sinh phổ thông bình quân một lớp học và số học sinh phổ thông bình quân một giáo viên tại thời điểm 30/9 phân theo loại trường",
+        "book_page": 854,
+        "pdf_page": 855,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 338,
+        "title": "Tỷ lệ phòng học kiên cố phân theo cấp học",
+        "book_page": 855,
+        "pdf_page": 856,
+        "domain": "giao_duc",
+        "has_geo": false
+      },
+      {
+        "table_num": 339,
+        "title": "Một số chỉ tiêu xã hội chủ yếu",
+        "book_page": 897,
+        "pdf_page": 898,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 340,
+        "title": "Số giường bệnh và số bác sĩ",
+        "book_page": 899,
+        "pdf_page": 900,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 341,
+        "title": "Tỷ lệ trẻ em dưới 5 tuổi bị suy dinh dưỡng phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 900,
+        "pdf_page": 901,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 344,
+        "title": "Số di tích lịch sử, văn hóa, danh lam thắng cảnh",
+        "book_page": 903,
+        "pdf_page": 904,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 345,
+        "title": "Số huy chương thể thao quốc tế đạt được",
+        "book_page": 904,
+        "pdf_page": 905,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 346,
+        "title": "Thu nhập bình quân đầu người một tháng theo giá hiện hành phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 905,
+        "pdf_page": 906,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 347,
+        "title": "Thu nhập bình quân đầu người một tháng năm 2025 theo giá hiện hành phân theo nguồn thu, phân theo thành thị, nông thôn, phân theo giới tính chủ hộ và phân theo vùng",
+        "book_page": 906,
+        "pdf_page": 907,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 348,
+        "title": "Thu nhập bình quân đầu người một tháng năm 2025 theo giá hiện hành phân theo nguồn thu và phân theo địa phương",
+        "book_page": 907,
+        "pdf_page": 908,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 349,
+        "title": "Thu nhập bình quân đầu người một tháng năm 2025 theo giá hiện hành phân theo 5 nhóm thu nhập, phân theo thành thị, nông thôn, phân theo giới tính chủ hộ và phân theo vùng",
+        "book_page": 910,
+        "pdf_page": 911,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 350,
+        "title": "Thu nhập bình quân đầu người một tháng năm 2025 theo giá hiện hành phân theo 5 nhóm thu nhập và phân theo địa phương",
+        "book_page": 911,
+        "pdf_page": 912,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 351,
+        "title": "Chênh lệch thu nhập bình quân đầu người một tháng năm 2025 giữa nhóm thu nhập cao nhất so với nhóm thu nhập thấp nhất theo giá hiện hành phân theo thành thị, nông thôn, phân theo giới tính chủ hộ và phân theo vùng",
+        "book_page": 914,
+        "pdf_page": 915,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 352,
+        "title": "Chênh lệch thu nhập bình quân đầu người một tháng năm 2025 giữa nhóm thu nhập cao nhất so với nhóm thu nhập thấp nhất theo giá hiện hành phân theo địa phương",
+        "book_page": 915,
+        "pdf_page": 916,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 353,
+        "title": "Thu nhập bình quân một lao động đang làm việc phân theo giới tính và phân theo thành thị, nông thôn",
+        "book_page": 918,
+        "pdf_page": 919,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 354,
+        "title": "Thu nhập bình quân một lao động đang làm việc phân theo ngành kinh tế",
+        "book_page": 919,
+        "pdf_page": 920,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 355,
+        "title": "Thu nhập bình quân một lao động đang làm việc phân theo nghề nghiệp",
+        "book_page": 921,
+        "pdf_page": 922,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 356,
+        "title": "Thu nhập bình quân một lao động đang làm việc phân theo địa phương",
+        "book_page": 922,
+        "pdf_page": 923,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 358,
+        "title": "Hệ số bất bình đẳng trong phân phối thu nhập (hệ số GINI) phân theo địa phương",
+        "book_page": 925,
+        "pdf_page": 926,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 359,
+        "title": "Chi tiêu bình quân đầu người một tháng theo giá hiện hành phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 927,
+        "pdf_page": 928,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 360,
+        "title": "Chi tiêu bình quân đầu người một tháng năm 2024 theo giá hiện hành phân theo khoản chi, phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 928,
+        "pdf_page": 929,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 361,
+        "title": "Chi tiêu cho đời sống bình quân đầu người một tháng theo giá hiện hành phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 929,
+        "pdf_page": 930,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 362,
+        "title": "Chi tiêu cho đời sống bình quân đầu người một tháng năm 2024 theo giá hiện hành phân theo 5 nhóm thu nhập, phân theo thành thị, nông thôn, phân theo giới tính chủ hộ và phân theo vùng",
+        "book_page": 930,
+        "pdf_page": 931,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 363,
+        "title": "Chênh lệch chi tiêu cho đời sống bình quân đầu người một tháng năm 2024 giữa nhóm thu nhập cao nhất so với nhóm thu nhập thấp nhất theo giá hiện hành phân theo thành thị, nông thôn, phân theo giới tính chủ hộ và phân theo vùng",
+        "book_page": 931,
+        "pdf_page": 932,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 365,
+        "title": "Tỷ lệ hộ nghèo phân theo dân tộc của chủ hộ, phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 933,
+        "pdf_page": 934,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 367,
+        "title": "Mức tiêu dùng một số mặt hàng chủ yếu bình quân đầu người một tháng phân theo mặt hàng",
+        "book_page": 936,
+        "pdf_page": 937,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 368,
+        "title": "Mức tiêu dùng một số mặt hàng chủ yếu bình quân đầu người một tháng năm 2024 phân theo thành thị, nông thôn",
+        "book_page": 937,
+        "pdf_page": 938,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 369,
+        "title": "Mức tiêu dùng một số mặt hàng chủ yếu bình quân đầu người một tháng năm 2024 phân theo 5 nhóm thu nhập",
+        "book_page": 938,
+        "pdf_page": 939,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 370,
+        "title": "Tỷ lệ dân số được sử dụng nguồn nước hợp vệ sinh",
+        "book_page": 939,
+        "pdf_page": 940,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 371,
+        "title": "Tỷ lệ dân số được sử dụng nguồn nước hợp vệ sinh phân theo địa phương",
+        "book_page": 940,
+        "pdf_page": 941,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 372,
+        "title": "Tỷ lệ dân số dùng hố xí hợp vệ sinh phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 942,
+        "pdf_page": 943,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 373,
+        "title": "Tỷ lệ dân số dùng hố xí hợp vệ sinh phân theo địa phương",
+        "book_page": 943,
+        "pdf_page": 944,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 374,
+        "title": "Tỷ lệ hộ dùng điện sinh hoạt phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 945,
+        "pdf_page": 946,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 375,
+        "title": "Tỷ lệ hộ dùng điện sinh hoạt phân theo địa phương",
+        "book_page": 946,
+        "pdf_page": 947,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 376,
+        "title": "Tỷ lệ hộ có đồ dùng lâu bền phân theo thành thị, nông thôn, phân theo vùng và phân theo 5 nhóm thu nhập",
+        "book_page": 948,
+        "pdf_page": 949,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 377,
+        "title": "Tỷ lệ hộ có máy tính phân theo thành thị, nông thôn, phân theo vùng và phân theo 5 nhóm thu nhập",
+        "book_page": 949,
+        "pdf_page": 950,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 378,
+        "title": "Tỷ lệ hộ có máy tính phân theo địa phương",
+        "book_page": 950,
+        "pdf_page": 951,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 379,
+        "title": "Tỷ lệ người sử dụng điện thoại di động phân theo thành thị, nông thôn, phân theo giới tính, phân theo nhóm tuổi, phân theo loại điện thoại và phân theo vùng",
+        "book_page": 952,
+        "pdf_page": 953,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 380,
+        "title": "Tỷ lệ người sử dụng điện thoại di động phân theo địa phương",
+        "book_page": 954,
+        "pdf_page": 955,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 381,
+        "title": "Tỷ lệ người sử dụng internet phân theo thành thị, nông thôn, phân theo giới tính, phân theo nhóm tuổi và phân theo vùng",
+        "book_page": 956,
+        "pdf_page": 957,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 382,
+        "title": "Tỷ lệ người sử dụng internet phân theo địa phương",
+        "book_page": 958,
+        "pdf_page": 959,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 383,
+        "title": "Tỷ lệ hộ gia đình có kết nối internet phân theo thành thị, nông thôn, phân theo giới tính chủ hộ và phân theo vùng",
+        "book_page": 960,
+        "pdf_page": 961,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 384,
+        "title": "Tỷ lệ hộ gia đình có kết nối internet phân theo địa phương",
+        "book_page": 961,
+        "pdf_page": 962,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 385,
+        "title": "Tỷ lệ người dân biết kỹ năng về công nghệ thông tin phân theo thành thị, nông thôn, phân theo giới tính, phân theo nhóm tuổi, phân theo loại kỹ năng và phân theo vùng",
+        "book_page": 963,
+        "pdf_page": 964,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 386,
+        "title": "Tỷ lệ người dân biết kỹ năng về công nghệ thông tin phân theo địa phương",
+        "book_page": 965,
+        "pdf_page": 966,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 387,
+        "title": "Tỷ lệ người dân tham gia mạng xã hội phân theo thành thị, nông thôn, phân theo giới tính, phân theo nhóm tuổi và phân theo vùng",
+        "book_page": 967,
+        "pdf_page": 968,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 388,
+        "title": "Tỷ lệ người dân tham gia mạng xã hội phân theo địa phương",
+        "book_page": 969,
+        "pdf_page": 970,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 389,
+        "title": "Tỷ lệ hộ có nhà ở năm 2024 phân theo loại nhà, phân theo thành thị, nông thôn, phân theo vùng và phân theo 5 nhóm thu nhập",
+        "book_page": 971,
+        "pdf_page": 972,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 390,
+        "title": "Tỷ lệ hộ có nhà ở năm 2024 phân theo loại nhà và phân theo địa phương",
+        "book_page": 972,
+        "pdf_page": 973,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 391,
+        "title": "Diện tích nhà ở bình quân đầu người phân theo thành thị, nông thôn, phân theo vùng và phân theo 5 nhóm thu nhập",
+        "book_page": 975,
+        "pdf_page": 976,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 392,
+        "title": "Diện tích nhà ở bình quân đầu người năm 2024 phân theo loại nhà và phân theo địa phương",
+        "book_page": 976,
+        "pdf_page": 977,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 393,
+        "title": "Tiêu dùng năng lượng bình quân đầu người phân theo loại năng lượng, phân theo thành thị, nông thôn và phân theo vùng",
+        "book_page": 979,
+        "pdf_page": 980,
+        "domain": "y_te_msdc",
+        "has_geo": true
+      },
+      {
+        "table_num": 395,
+        "title": "Số vụ án và bị can đã khởi tố năm 2025 phân theo nhóm tội danh",
+        "book_page": 981,
+        "pdf_page": 982,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 396,
+        "title": "Số vụ án và bị can đã truy tố năm 2025 phân theo nhóm tội danh",
+        "book_page": 982,
+        "pdf_page": 983,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 397,
+        "title": "Số vụ án và bị cáo đã xét xử sơ thẩm năm 2025 phân theo nhóm tội danh",
+        "book_page": 983,
+        "pdf_page": 984,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 398,
+        "title": "Số lượt người đã được trợ giúp pháp lý phân theo đối tượng được trợ giúp pháp lý",
+        "book_page": 984,
+        "pdf_page": 985,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 399,
+        "title": "Trật tự và an toàn xã hội",
+        "book_page": 986,
+        "pdf_page": 987,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      },
+      {
+        "table_num": 400,
+        "title": "Thiệt hại do thiên tai",
+        "book_page": 987,
+        "pdf_page": 988,
+        "domain": "y_te_msdc",
+        "has_geo": false
+      }
+    ]
+  }
+}
