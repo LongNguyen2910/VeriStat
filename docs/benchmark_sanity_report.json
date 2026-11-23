@@ -1,0 +1,159 @@
+{
+  "status": "VERIFIED 100%",
+  "total_questions": 430,
+  "verified_reference_code_count": 430,
+  "dev_test_overlap_count": 0,
+  "failures": [],
+  "dev_30": {
+    "total": 30,
+    "by_category": {
+      "growth": 8,
+      "share": 8,
+      "ranking": 7,
+      "correlation": 7
+    },
+    "by_difficulty": {
+      "medium": 8,
+      "hard": 10,
+      "easy": 12
+    },
+    "by_answer_type": {
+      "number": 23,
+      "entity": 3,
+      "entity_list": 4
+    },
+    "category_x_difficulty": {
+      "growth": {
+        "easy": 0,
+        "medium": 4,
+        "hard": 4
+      },
+      "share": {
+        "easy": 4,
+        "medium": 3,
+        "hard": 1
+      },
+      "ranking": {
+        "easy": 3,
+        "medium": 1,
+        "hard": 3
+      },
+      "correlation": {
+        "easy": 5,
+        "medium": 0,
+        "hard": 2
+      }
+    },
+    "table_reference_by_domain": {
+      "y_te": 2,
+      "doanh_nghiep": 13,
+      "lao_dong": 12,
+      "dan_so": 11,
+      "giao_duc": 1
+    },
+    "uses_admin_mapping_count": 8,
+    "uses_admin_mapping_pct": 26.67,
+    "numeric_ground_truth_distribution": {
+      "correlation": {
+        "count": 7,
+        "min": 0.3846,
+        "p05": 0.4117,
+        "median": 0.9302,
+        "p95": 0.9801,
+        "max": 0.9814
+      },
+      "growth": {
+        "count": 8,
+        "min": -38.7413,
+        "p05": -26.505,
+        "median": 2.3053,
+        "p95": 32.9301,
+        "max": 44.6381
+      },
+      "share": {
+        "count": 8,
+        "min": 0.1788,
+        "p05": 0.3633,
+        "median": 6.3286,
+        "p95": 71.6537,
+        "max": 97.1418
+      }
+    }
+  },
+  "benchmark_400": {
+    "total": 400,
+    "by_category": {
+      "growth": 100,
+      "share": 100,
+      "ranking": 100,
+      "correlation": 100
+    },
+    "by_difficulty": {
+      "hard": 118,
+      "medium": 162,
+      "easy": 120
+    },
+    "by_answer_type": {
+      "number": 300,
+      "entity_list": 71,
+      "entity": 29
+    },
+    "category_x_difficulty": {
+      "growth": {
+        "easy": 33,
+        "medium": 38,
+        "hard": 29
+      },
+      "share": {
+        "easy": 29,
+        "medium": 38,
+        "hard": 33
+      },
+      "ranking": {
+        "easy": 29,
+        "medium": 42,
+        "hard": 29
+      },
+      "correlation": {
+        "easy": 29,
+        "medium": 44,
+        "hard": 27
+      }
+    },
+    "table_reference_by_domain": {
+      "dan_so": 156,
+      "doanh_nghiep": 163,
+      "lao_dong": 128,
+      "y_te": 76,
+      "giao_duc": 8
+    },
+    "uses_admin_mapping_count": 108,
+    "uses_admin_mapping_pct": 27.0,
+    "numeric_ground_truth_distribution": {
+      "correlation": {
+        "count": 100,
+        "min": -0.8165,
+        "p05": -0.4342,
+        "median": 0.6484,
+        "p95": 0.9848,
+        "max": 0.9939
+      },
+      "growth": {
+        "count": 100,
+        "min": -33.332,
+        "p05": -6.7394,
+        "median": 4.5445,
+        "p95": 57.0781,
+        "max": 85.2589
+      },
+      "share": {
+        "count": 100,
+        "min": 0.0553,
+        "p05": 0.4437,
+        "median": 5.3061,
+        "p95": 54.9814,
+        "max": 97.4001
+      }
+    }
+  }
+}
