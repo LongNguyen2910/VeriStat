@@ -1,0 +1,351 @@
+﻿dia_phuong,geo_level,nam,gia_tri
+Cả nước,country,2020,2.48
+Cả nước,country,2022,2.34
+Cả nước,country,2023,2.28
+Cả nước,country,2024,2.24
+Cả nước,country,2025,2.21
+Đồng bằng sông Hồng,region,2020,2.05
+Đồng bằng sông Hồng,region,2022,1.93
+Đồng bằng sông Hồng,region,2023,1.86
+Đồng bằng sông Hồng,region,2024,1.72
+Đồng bằng sông Hồng,region,2025,1.65
+Hà Nội,province,2020,2.11
+Hà Nội,province,2022,2.22
+Hà Nội,province,2023,2.01
+Hà Nội,province,2024,1.77
+Hà Nội,province,2025,1.73
+Vĩnh Phúc,province,2020,2.09
+Vĩnh Phúc,province,2022,1.46
+Vĩnh Phúc,province,2023,1.72
+Vĩnh Phúc,province,2024,1.71
+Vĩnh Phúc,province,2025,1.85
+Bắc Ninh,province,2020,2.19
+Bắc Ninh,province,2022,2.55
+Bắc Ninh,province,2023,2.68
+Bắc Ninh,province,2024,2.31
+Bắc Ninh,province,2025,2.21
+Quảng Ninh,province,2020,3.22
+Quảng Ninh,province,2022,2.21
+Quảng Ninh,province,2023,2.22
+Quảng Ninh,province,2024,2.15
+Quảng Ninh,province,2025,2.13
+Hải Dương,province,2020,1.7
+Hải Dương,province,2022,1.5
+Hải Dương,province,2023,1.33
+Hải Dương,province,2024,1.27
+Hải Dương,province,2025,1.25
+Hải Phòng,province,2020,2.37
+Hải Phòng,province,2022,2.36
+Hải Phòng,province,2023,2.35
+Hải Phòng,province,2024,2.15
+Hải Phòng,province,2025,2.1
+Hưng Yên,province,2020,2.67
+Hưng Yên,province,2022,1.86
+Hưng Yên,province,2023,1.89
+Hưng Yên,province,2024,1.66
+Hưng Yên,province,2025,1.12
+Thái Bình,province,2020,1.24
+Thái Bình,province,2022,1.13
+Thái Bình,province,2023,0.99
+Thái Bình,province,2024,1.21
+Thái Bình,province,2025,0.76
+Hà Nam,province,2020,1.76
+Hà Nam,province,2022,0.91
+Hà Nam,province,2023,1.34
+Hà Nam,province,2024,1.89
+Hà Nam,province,2025,2.12
+Nam Định,province,2020,1.68
+Nam Định,province,2022,1.65
+Nam Định,province,2023,1.57
+Nam Định,province,2024,1.25
+Nam Định,province,2025,1.25
+Ninh Bình,province,2020,1.36
+Ninh Bình,province,2022,1.32
+Ninh Bình,province,2023,1.28
+Ninh Bình,province,2024,1.07
+Ninh Bình,province,2025,1.5
+Trung du và miền núi phía Bắc,region,2020,1.06
+Trung du và miền núi phía Bắc,region,2022,2.1
+Trung du và miền núi phía Bắc,region,2023,1.91
+Trung du và miền núi phía Bắc,region,2024,1.91
+Trung du và miền núi phía Bắc,region,2025,2.31
+Hà Giang,province,2020,1.03
+Hà Giang,province,2022,4.25
+Hà Giang,province,2023,3.14
+Hà Giang,province,2024,2.89
+Hà Giang,province,2025,2.85
+Cao Bằng,province,2020,0.96
+Cao Bằng,province,2022,3.73
+Cao Bằng,province,2023,3.13
+Cao Bằng,province,2024,2.41
+Cao Bằng,province,2025,1.21
+Bắc Kạn,province,2020,0.88
+Bắc Kạn,province,2022,3.16
+Bắc Kạn,province,2023,3.42
+Bắc Kạn,province,2024,3.23
+Bắc Kạn,province,2025,3.2
+Tuyên Quang,province,2020,1.4
+Tuyên Quang,province,2022,3.56
+Tuyên Quang,province,2023,3.64
+Tuyên Quang,province,2024,3.54
+Tuyên Quang,province,2025,3.41
+Lào Cai,province,2020,1.62
+Lào Cai,province,2022,1.47
+Lào Cai,province,2023,1.49
+Lào Cai,province,2024,1.6
+Lào Cai,province,2025,1.95
+Yên Bái,province,2020,0.73
+Yên Bái,province,2022,2.89
+Yên Bái,province,2023,2.71
+Yên Bái,province,2024,2.82
+Yên Bái,province,2025,3.77
+Thái Nguyên,province,2020,1.7
+Thái Nguyên,province,2022,1.47
+Thái Nguyên,province,2023,1.78
+Thái Nguyên,province,2024,1.66
+Thái Nguyên,province,2025,1.54
+Lạng Sơn,province,2020,1.84
+Lạng Sơn,province,2022,6.34
+Lạng Sơn,province,2023,4.28
+Lạng Sơn,province,2024,4.17
+Lạng Sơn,province,2025,4.05
+Bắc Giang,province,2020,0.79
+Bắc Giang,province,2022,0.79
+Bắc Giang,province,2023,0.85
+Bắc Giang,province,2024,0.65
+Bắc Giang,province,2025,0.85
+Phú Thọ,province,2020,1.47
+Phú Thọ,province,2022,1.12
+Phú Thọ,province,2023,1.29
+Phú Thọ,province,2024,1.51
+Phú Thọ,province,2025,1.66
+Điện Biên,province,2020,0.45
+Điện Biên,province,2022,0.39
+Điện Biên,province,2023,0.31
+Điện Biên,province,2024,0.56
+Điện Biên,province,2025,0.9
+Lai Châu,province,2020,0.42
+Lai Châu,province,2022,1.23
+Lai Châu,province,2023,1.21
+Lai Châu,province,2024,1.43
+Lai Châu,province,2025,1.58
+Sơn La,province,2020,0.67
+Sơn La,province,2022,2.38
+Sơn La,province,2023,2.11
+Sơn La,province,2024,1.89
+Sơn La,province,2025,1.96
+Hòa Bình,province,2020,0.44
+Hòa Bình,province,2022,1.21
+Hòa Bình,province,2023,1.09
+Hòa Bình,province,2024,1.19
+Hòa Bình,province,2025,0.55
+Bắc Trung Bộ và Duyên hải miền Trung,region,2020,3.16
+Bắc Trung Bộ và Duyên hải miền Trung,region,2022,2.59
+Bắc Trung Bộ và Duyên hải miền Trung,region,2023,2.37
+Bắc Trung Bộ và Duyên hải miền Trung,region,2024,2.38
+Bắc Trung Bộ và Duyên hải miền Trung,region,2025,2.38
+Thanh Hóa,province,2020,1.87
+Thanh Hóa,province,2022,1.12
+Thanh Hóa,province,2023,1.19
+Thanh Hóa,province,2024,1.55
+Thanh Hóa,province,2025,1.44
+Nghệ An,province,2020,1.26
+Nghệ An,province,2022,1.77
+Nghệ An,province,2023,2.03
+Nghệ An,province,2024,2.08
+Nghệ An,province,2025,1.97
+Hà Tĩnh,province,2020,3.18
+Hà Tĩnh,province,2022,5.43
+Hà Tĩnh,province,2023,5.51
+Hà Tĩnh,province,2024,4.4
+Hà Tĩnh,province,2025,3.97
+Quảng Bình,province,2020,3.49
+Quảng Bình,province,2022,3.35
+Quảng Bình,province,2023,3.16
+Quảng Bình,province,2024,3.06
+Quảng Bình,province,2025,2.58
+Quảng Trị,province,2020,3.93
+Quảng Trị,province,2022,2.77
+Quảng Trị,province,2023,2.76
+Quảng Trị,province,2024,2.22
+Quảng Trị,province,2025,2.53
+Huế,province,2020,4.29
+Huế,province,2022,3.55
+Huế,province,2023,2.51
+Huế,province,2024,2.35
+Huế,province,2025,3.93
+Đà Nẵng,province,2020,9.41
+Đà Nẵng,province,2022,2.42
+Đà Nẵng,province,2023,1.98
+Đà Nẵng,province,2024,1.86
+Đà Nẵng,province,2025,1.46
+Quảng Nam,province,2020,4.09
+Quảng Nam,province,2022,4.05
+Quảng Nam,province,2023,4.04
+Quảng Nam,province,2024,3.89
+Quảng Nam,province,2025,2.65
+Quảng Ngãi,province,2020,3.19
+Quảng Ngãi,province,2022,1.82
+Quảng Ngãi,province,2023,2.09
+Quảng Ngãi,province,2024,2.64
+Quảng Ngãi,province,2025,3.06
+Bình Định,province,2020,2.85
+Bình Định,province,2022,2.54
+Bình Định,province,2023,1.99
+Bình Định,province,2024,1.96
+Bình Định,province,2025,1.64
+Phú Yên,province,2020,2.76
+Phú Yên,province,2022,2.95
+Phú Yên,province,2023,2.57
+Phú Yên,province,2024,2.46
+Phú Yên,province,2025,3.59
+Khánh Hòa,province,2020,4.7
+Khánh Hòa,province,2022,3.37
+Khánh Hòa,province,2023,2.44
+Khánh Hòa,province,2024,2.5
+Khánh Hòa,province,2025,3.2
+Ninh Thuận,province,2020,3.32
+Ninh Thuận,province,2022,1.99
+Ninh Thuận,province,2023,2.4
+Ninh Thuận,province,2024,2.72
+Ninh Thuận,province,2025,3.64
+Bình Thuận,province,2020,2.86
+Bình Thuận,province,2022,3.5
+Bình Thuận,province,2023,2.35
+Bình Thuận,province,2024,2.18
+Bình Thuận,province,2025,1.73
+Tây Nguyên,region,2020,1.66
+Tây Nguyên,region,2022,0.67
+Tây Nguyên,region,2023,0.7
+Tây Nguyên,region,2024,0.85
+Tây Nguyên,region,2025,1.06
+Kon Tum,province,2020,1.05
+Kon Tum,province,2022,0.67
+Kon Tum,province,2023,0.65
+Kon Tum,province,2024,0.55
+Kon Tum,province,2025,0.37
+Gia Lai,province,2020,1.76
+Gia Lai,province,2022,0.52
+Gia Lai,province,2023,0.5
+Gia Lai,province,2024,0.7
+Gia Lai,province,2025,1.44
+Đắk Lắk,province,2020,2.2
+Đắk Lắk,province,2022,0.81
+Đắk Lắk,province,2023,0.98
+Đắk Lắk,province,2024,1.24
+Đắk Lắk,province,2025,1.42
+Đắk Nông,province,2020,1.79
+Đắk Nông,province,2022,0.64
+Đắk Nông,province,2023,0.75
+Đắk Nông,province,2024,0.55
+Đắk Nông,province,2025,0.33
+Lâm Đồng,province,2020,0.98
+Lâm Đồng,province,2022,0.65
+Lâm Đồng,province,2023,0.53
+Lâm Đồng,province,2024,0.74
+Lâm Đồng,province,2025,0.81
+Đông Nam Bộ,region,2020,3.23
+Đông Nam Bộ,region,2022,2.88
+Đông Nam Bộ,region,2023,2.91
+Đông Nam Bộ,region,2024,2.71
+Đông Nam Bộ,region,2025,2.37
+Bình Phước,province,2020,2.93
+Bình Phước,province,2022,2.05
+Bình Phước,province,2023,2.79
+Bình Phước,province,2024,2.46
+Bình Phước,province,2025,2.04
+Tây Ninh,province,2020,1.72
+Tây Ninh,province,2022,1.69
+Tây Ninh,province,2023,1.55
+Tây Ninh,province,2024,1.39
+Tây Ninh,province,2025,2.02
+Bình Dương,province,2020,3.31
+Bình Dương,province,2022,1.31
+Bình Dương,province,2023,1.42
+Bình Dương,province,2024,1.81
+Bình Dương,province,2025,0.49
+Đồng Nai,province,2020,1.86
+Đồng Nai,province,2022,1.81
+Đồng Nai,province,2023,2.66
+Đồng Nai,province,2024,2.35
+Đồng Nai,province,2025,1.49
+Bà Rịa - Vũng Tàu,province,2020,3.56
+Bà Rịa - Vũng Tàu,province,2022,2.81
+Bà Rịa - Vũng Tàu,province,2023,2.89
+Bà Rịa - Vũng Tàu,province,2024,2.48
+Bà Rịa - Vũng Tàu,province,2025,3.01
+TP. Hồ Chí Minh,province,2020,3.91
+TP. Hồ Chí Minh,province,2022,4.19
+TP. Hồ Chí Minh,province,2023,3.8
+TP. Hồ Chí Minh,province,2024,3.42
+TP. Hồ Chí Minh,province,2025,3.33
+Đồng bằng sông Cửu Long,region,2020,2.82
+Đồng bằng sông Cửu Long,region,2022,2.76
+Đồng bằng sông Cửu Long,region,2023,2.82
+Đồng bằng sông Cửu Long,region,2024,2.93
+Đồng bằng sông Cửu Long,region,2025,2.91
+Long An,province,2020,2.15
+Long An,province,2022,1.89
+Long An,province,2023,1.89
+Long An,province,2024,1.99
+Long An,province,2025,1.79
+Tiền Giang,province,2020,3.14
+Tiền Giang,province,2022,2.03
+Tiền Giang,province,2023,2.35
+Tiền Giang,province,2024,2.63
+Tiền Giang,province,2025,3.97
+Bến Tre,province,2020,2.16
+Bến Tre,province,2022,2.0
+Bến Tre,province,2023,1.83
+Bến Tre,province,2024,1.97
+Bến Tre,province,2025,1.46
+Trà Vinh,province,2020,2.22
+Trà Vinh,province,2022,2.66
+Trà Vinh,province,2023,2.62
+Trà Vinh,province,2024,2.75
+Trà Vinh,province,2025,2.22
+Vĩnh Long,province,2020,2.67
+Vĩnh Long,province,2022,2.88
+Vĩnh Long,province,2023,2.85
+Vĩnh Long,province,2024,3.18
+Vĩnh Long,province,2025,3.31
+Đồng Tháp,province,2020,2.79
+Đồng Tháp,province,2022,4.94
+Đồng Tháp,province,2023,4.95
+Đồng Tháp,province,2024,4.19
+Đồng Tháp,province,2025,3.22
+An Giang,province,2020,2.53
+An Giang,province,2022,3.32
+An Giang,province,2023,3.27
+An Giang,province,2024,3.57
+An Giang,province,2025,3.33
+Kiên Giang,province,2020,4.35
+Kiên Giang,province,2022,2.82
+Kiên Giang,province,2023,2.97
+Kiên Giang,province,2024,3.17
+Kiên Giang,province,2025,3.49
+Cần Thơ,province,2020,3.6
+Cần Thơ,province,2022,3.72
+Cần Thơ,province,2023,3.78
+Cần Thơ,province,2024,3.82
+Cần Thơ,province,2025,3.97
+Hậu Giang,province,2020,3.05
+Hậu Giang,province,2022,1.69
+Hậu Giang,province,2023,2.01
+Hậu Giang,province,2024,2.03
+Hậu Giang,province,2025,2.06
+Sóc Trăng,province,2020,2.1
+Sóc Trăng,province,2022,3.37
+Sóc Trăng,province,2023,3.39
+Sóc Trăng,province,2024,3.58
+Sóc Trăng,province,2025,3.75
+Bạc Liêu,province,2020,3.48
+Bạc Liêu,province,2022,2.12
+Bạc Liêu,province,2023,2.05
+Bạc Liêu,province,2024,2.34
+Bạc Liêu,province,2025,1.05
+Cà Mau,province,2020,2.27
+Cà Mau,province,2022,1.47
+Cà Mau,province,2023,1.91
+Cà Mau,province,2024,2.25
+Cà Mau,province,2025,2.99

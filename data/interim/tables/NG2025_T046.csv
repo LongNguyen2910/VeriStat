@@ -1,0 +1,351 @@
+﻿dia_phuong,geo_level,nam,gia_tri
+Cả nước,country,2020,54842.9
+Cả nước,country,2022,51704.9
+Cả nước,country,2023,52376.0
+Cả nước,country,2024,52942.3
+Cả nước,country,2025,53559.6
+Đồng bằng sông Hồng,region,2020,12182.1
+Đồng bằng sông Hồng,region,2022,11637.9
+Đồng bằng sông Hồng,region,2023,11781.7
+Đồng bằng sông Hồng,region,2024,11902.6
+Đồng bằng sông Hồng,region,2025,12051.6
+Hà Nội,province,2020,4124.6
+Hà Nội,province,2022,4011.7
+Hà Nội,province,2023,4105.4
+Hà Nội,province,2024,4177.8
+Hà Nội,province,2025,4259.2
+Vĩnh Phúc,province,2020,634.5
+Vĩnh Phúc,province,2022,592.7
+Vĩnh Phúc,province,2023,607.0
+Vĩnh Phúc,province,2024,614.1
+Vĩnh Phúc,province,2025,621.3
+Bắc Ninh,province,2020,774.6
+Bắc Ninh,province,2022,787.2
+Bắc Ninh,province,2023,791.5
+Bắc Ninh,province,2024,800.2
+Bắc Ninh,province,2025,818.3
+Quảng Ninh,province,2020,693.6
+Quảng Ninh,province,2022,678.1
+Quảng Ninh,province,2023,685.3
+Quảng Ninh,province,2024,692.4
+Quảng Ninh,province,2025,695.2
+Hải Dương,province,2020,1015.0
+Hải Dương,province,2022,952.6
+Hải Dương,province,2023,948.1
+Hải Dương,province,2024,946.3
+Hải Dương,province,2025,947.5
+Hải Phòng,province,2020,1077.8
+Hải Phòng,province,2022,1038.8
+Hải Phòng,province,2023,1042.7
+Hải Phòng,province,2024,1044.8
+Hải Phòng,province,2025,1062.2
+Hưng Yên,province,2020,722.0
+Hưng Yên,province,2022,683.0
+Hưng Yên,province,2023,692.2
+Hưng Yên,province,2024,694.2
+Hưng Yên,province,2025,696.2
+Thái Bình,province,2020,1084.3
+Thái Bình,province,2022,982.3
+Thái Bình,province,2023,986.9
+Thái Bình,province,2024,995.8
+Thái Bình,province,2025,1001.1
+Hà Nam,province,2020,467.0
+Hà Nam,province,2022,457.1
+Hà Nam,province,2023,461.7
+Hà Nam,province,2024,469.2
+Hà Nam,province,2025,476.9
+Nam Định,province,2020,1025.2
+Nam Định,province,2022,965.1
+Nam Định,province,2023,968.1
+Nam Định,province,2024,970.1
+Nam Định,province,2025,971.2
+Ninh Bình,province,2020,563.6
+Ninh Bình,province,2022,489.2
+Ninh Bình,province,2023,492.8
+Ninh Bình,province,2024,497.6
+Ninh Bình,province,2025,502.5
+Trung du và miền núi phía Bắc,region,2020,7665.6
+Trung du và miền núi phía Bắc,region,2022,6167.7
+Trung du và miền núi phía Bắc,region,2023,6255.3
+Trung du và miền núi phía Bắc,region,2024,6350.8
+Trung du và miền núi phía Bắc,region,2025,6410.7
+Hà Giang,province,2020,529.4
+Hà Giang,province,2022,376.1
+Hà Giang,province,2023,377.6
+Hà Giang,province,2024,383.1
+Hà Giang,province,2025,381.7
+Cao Bằng,province,2020,349.0
+Cao Bằng,province,2022,208.7
+Cao Bằng,province,2023,226.7
+Cao Bằng,province,2024,233.4
+Cao Bằng,province,2025,234.6
+Bắc Kạn,province,2020,206.0
+Bắc Kạn,province,2022,151.9
+Bắc Kạn,province,2023,153.6
+Bắc Kạn,province,2024,157.9
+Bắc Kạn,province,2025,158.9
+Tuyên Quang,province,2020,480.5
+Tuyên Quang,province,2022,380.6
+Tuyên Quang,province,2023,382.0
+Tuyên Quang,province,2024,385.3
+Tuyên Quang,province,2025,386.7
+Lào Cai,province,2020,433.0
+Lào Cai,province,2022,396.2
+Lào Cai,province,2023,397.6
+Lào Cai,province,2024,399.3
+Lào Cai,province,2025,404.0
+Yên Bái,province,2020,521.2
+Yên Bái,province,2022,371.7
+Yên Bái,province,2023,372.2
+Yên Bái,province,2024,375.8
+Yên Bái,province,2025,382.1
+Thái Nguyên,province,2020,769.9
+Thái Nguyên,province,2022,611.9
+Thái Nguyên,province,2023,616.6
+Thái Nguyên,province,2024,621.9
+Thái Nguyên,province,2025,622.5
+Lạng Sơn,province,2020,487.7
+Lạng Sơn,province,2022,325.6
+Lạng Sơn,province,2023,328.3
+Lạng Sơn,province,2024,335.0
+Lạng Sơn,province,2025,336.5
+Bắc Giang,province,2020,1102.8
+Bắc Giang,province,2022,986.8
+Bắc Giang,province,2023,1006.0
+Bắc Giang,province,2024,1023.4
+Bắc Giang,province,2025,1041.2
+Phú Thọ,province,2020,847.4
+Phú Thọ,province,2022,713.9
+Phú Thọ,province,2023,721.7
+Phú Thọ,province,2024,726.3
+Phú Thọ,province,2025,730.9
+Điện Biên,province,2020,353.1
+Điện Biên,province,2022,330.8
+Điện Biên,province,2023,339.5
+Điện Biên,province,2024,348.5
+Điện Biên,province,2025,352.0
+Lai Châu,province,2020,284.1
+Lai Châu,province,2022,208.9
+Lai Châu,province,2023,218.2
+Lai Châu,province,2024,232.9
+Lai Châu,province,2025,236.8
+Sơn La,province,2020,770.5
+Sơn La,province,2022,601.9
+Sơn La,province,2023,610.4
+Sơn La,province,2024,613.8
+Sơn La,province,2025,625.2
+Hòa Bình,province,2020,531.0
+Hòa Bình,province,2022,502.7
+Hòa Bình,province,2023,504.8
+Hòa Bình,province,2024,514.2
+Hòa Bình,province,2025,517.5
+Bắc Trung Bộ và Duyên hải miền Trung,region,2020,11557.6
+Bắc Trung Bộ và Duyên hải miền Trung,region,2022,10661.3
+Bắc Trung Bộ và Duyên hải miền Trung,region,2023,10707.4
+Bắc Trung Bộ và Duyên hải miền Trung,region,2024,10784.9
+Bắc Trung Bộ và Duyên hải miền Trung,region,2025,10868.8
+Thanh Hóa,province,2020,2225.5
+Thanh Hóa,province,2022,1975.6
+Thanh Hóa,province,2023,1977.4
+Thanh Hóa,province,2024,1985.9
+Thanh Hóa,province,2025,1986.9
+Nghệ An,province,2020,1927.0
+Nghệ An,province,2022,1623.1
+Nghệ An,province,2023,1626.4
+Nghệ An,province,2024,1632.6
+Nghệ An,province,2025,1634.2
+Hà Tĩnh,province,2020,671.8
+Hà Tĩnh,province,2022,528.0
+Hà Tĩnh,province,2023,527.1
+Hà Tĩnh,province,2024,527.0
+Hà Tĩnh,province,2025,532.2
+Quảng Bình,province,2020,505.3
+Quảng Bình,province,2022,434.8
+Quảng Bình,province,2023,435.3
+Quảng Bình,province,2024,436.0
+Quảng Bình,province,2025,436.7
+Quảng Trị,province,2020,348.1
+Quảng Trị,province,2022,334.7
+Quảng Trị,province,2023,335.4
+Quảng Trị,province,2024,336.7
+Quảng Trị,province,2025,337.2
+Huế,province,2020,583.7
+Huế,province,2022,597.6
+Huế,province,2023,602.0
+Huế,province,2024,611.8
+Huế,province,2025,628.5
+Đà Nẵng,province,2020,586.2
+Đà Nẵng,province,2022,641.8
+Đà Nẵng,province,2023,645.6
+Đà Nẵng,province,2024,655.0
+Đà Nẵng,province,2025,679.5
+Quảng Nam,province,2020,891.2
+Quảng Nam,province,2022,837.5
+Quảng Nam,province,2023,838.9
+Quảng Nam,province,2024,844.6
+Quảng Nam,province,2025,852.1
+Quảng Ngãi,province,2020,731.7
+Quảng Ngãi,province,2022,674.9
+Quảng Ngãi,province,2023,679.3
+Quảng Ngãi,province,2024,683.7
+Quảng Ngãi,province,2025,688.1
+Bình Định,province,2020,864.5
+Bình Định,province,2022,844.5
+Bình Định,province,2023,848.1
+Bình Định,province,2024,851.4
+Bình Định,province,2025,857.6
+Phú Yên,province,2020,510.7
+Phú Yên,province,2022,468.8
+Phú Yên,province,2023,473.6
+Phú Yên,province,2024,477.0
+Phú Yên,province,2025,480.4
+Khánh Hòa,province,2020,671.7
+Khánh Hòa,province,2022,671.6
+Khánh Hòa,province,2023,682.8
+Khánh Hòa,province,2024,698.7
+Khánh Hòa,province,2025,709.0
+Ninh Thuận,province,2020,328.3
+Ninh Thuận,province,2022,333.1
+Ninh Thuận,province,2023,334.8
+Ninh Thuận,province,2024,338.4
+Ninh Thuận,province,2025,338.5
+Bình Thuận,province,2020,712.0
+Bình Thuận,province,2022,695.4
+Bình Thuận,province,2023,700.6
+Bình Thuận,province,2024,706.2
+Bình Thuận,province,2025,707.7
+Tây Nguyên,region,2020,3456.6
+Tây Nguyên,region,2022,3590.3
+Tây Nguyên,region,2023,3625.2
+Tây Nguyên,region,2024,3660.0
+Tây Nguyên,region,2025,3698.3
+Kon Tum,province,2020,312.8
+Kon Tum,province,2022,328.7
+Kon Tum,province,2023,338.3
+Kon Tum,province,2024,346.3
+Kon Tum,province,2025,360.3
+Gia Lai,province,2020,898.8
+Gia Lai,province,2022,929.7
+Gia Lai,province,2023,949.1
+Gia Lai,province,2024,961.0
+Gia Lai,province,2025,973.3
+Đắk Lắk,province,2020,1101.7
+Đắk Lắk,province,2022,1141.9
+Đắk Lắk,province,2023,1143.2
+Đắk Lắk,province,2024,1151.1
+Đắk Lắk,province,2025,1159.5
+Đắk Nông,province,2020,373.2
+Đắk Nông,province,2022,391.8
+Đắk Nông,province,2023,395.2
+Đắk Nông,province,2024,398.7
+Đắk Nông,province,2025,402.0
+Lâm Đồng,province,2020,770.0
+Lâm Đồng,province,2022,798.2
+Lâm Đồng,province,2023,799.4
+Lâm Đồng,province,2024,802.8
+Lâm Đồng,province,2025,803.2
+Đông Nam Bộ,region,2020,10082.2
+Đông Nam Bộ,region,2022,10162.5
+Đông Nam Bộ,region,2023,10458.5
+Đông Nam Bộ,region,2024,10632.7
+Đông Nam Bộ,region,2025,10887.4
+Bình Phước,province,2020,603.8
+Bình Phước,province,2022,602.9
+Bình Phước,province,2023,603.0
+Bình Phước,province,2024,603.8
+Bình Phước,province,2025,609.5
+Tây Ninh,province,2020,692.8
+Tây Ninh,province,2022,669.8
+Tây Ninh,province,2023,679.1
+Tây Ninh,province,2024,687.6
+Tây Ninh,province,2025,696.3
+Bình Dương,province,2020,1650.9
+Bình Dương,province,2022,1782.8
+Bình Dương,province,2023,1871.3
+Bình Dương,province,2024,1943.9
+Bình Dương,province,2025,2019.4
+Đồng Nai,province,2020,1767.6
+Đồng Nai,province,2022,1777.0
+Đồng Nai,province,2023,1832.1
+Đồng Nai,province,2024,1850.8
+Đồng Nai,province,2025,1899.7
+Bà Rịa - Vũng Tàu,province,2020,597.4
+Bà Rịa - Vũng Tàu,province,2022,639.7
+Bà Rịa - Vũng Tàu,province,2023,629.4
+Bà Rịa - Vũng Tàu,province,2024,631.4
+Bà Rịa - Vũng Tàu,province,2025,633.4
+TP. Hồ Chí Minh,province,2020,4769.6
+TP. Hồ Chí Minh,province,2022,4690.3
+TP. Hồ Chí Minh,province,2023,4843.6
+TP. Hồ Chí Minh,province,2024,4915.1
+TP. Hồ Chí Minh,province,2025,5029.2
+Đồng bằng sông Cửu Long,region,2020,9898.9
+Đồng bằng sông Cửu Long,region,2022,9485.2
+Đồng bằng sông Cửu Long,region,2023,9547.9
+Đồng bằng sông Cửu Long,region,2024,9611.4
+Đồng bằng sông Cửu Long,region,2025,9642.8
+Long An,province,2020,1029.3
+Long An,province,2022,999.3
+Long An,province,2023,1012.3
+Long An,province,2024,1019.9
+Long An,province,2025,1028.0
+Tiền Giang,province,2020,1112.1
+Tiền Giang,province,2022,1062.5
+Tiền Giang,province,2023,1081.8
+Tiền Giang,province,2024,1092.1
+Tiền Giang,province,2025,1100.5
+Bến Tre,province,2020,827.1
+Bến Tre,province,2022,785.0
+Bến Tre,province,2023,786.1
+Bến Tre,province,2024,786.9
+Bến Tre,province,2025,787.6
+Trà Vinh,province,2020,561.3
+Trà Vinh,province,2022,547.4
+Trà Vinh,province,2023,545.0
+Trà Vinh,province,2024,544.1
+Trà Vinh,province,2025,543.3
+Vĩnh Long,province,2020,603.6
+Vĩnh Long,province,2022,582.9
+Vĩnh Long,province,2023,590.3
+Vĩnh Long,province,2024,601.2
+Vĩnh Long,province,2025,609.5
+Đồng Tháp,province,2020,917.3
+Đồng Tháp,province,2022,910.5
+Đồng Tháp,province,2023,913.7
+Đồng Tháp,province,2024,911.0
+Đồng Tháp,province,2025,909.8
+An Giang,province,2020,985.6
+An Giang,province,2022,931.2
+An Giang,province,2023,928.6
+An Giang,province,2024,931.4
+An Giang,province,2025,934.1
+Kiên Giang,province,2020,924.0
+Kiên Giang,province,2022,929.8
+Kiên Giang,province,2023,925.7
+Kiên Giang,province,2024,929.3
+Kiên Giang,province,2025,930.7
+Cần Thơ,province,2020,716.8
+Cần Thơ,province,2022,607.4
+Cần Thơ,province,2023,617.4
+Cần Thơ,province,2024,629.2
+Cần Thơ,province,2025,632.3
+Hậu Giang,province,2020,402.3
+Hậu Giang,province,2022,411.8
+Hậu Giang,province,2023,410.9
+Hậu Giang,province,2024,414.1
+Hậu Giang,province,2025,414.4
+Sóc Trăng,province,2020,641.9
+Sóc Trăng,province,2022,625.6
+Sóc Trăng,province,2023,626.9
+Sóc Trăng,province,2024,629.7
+Sóc Trăng,province,2025,630.1
+Bạc Liêu,province,2020,507.8
+Bạc Liêu,province,2022,482.0
+Bạc Liêu,province,2023,483.1
+Bạc Liêu,province,2024,486.1
+Bạc Liêu,province,2025,486.3
+Cà Mau,province,2020,669.8
+Cà Mau,province,2022,609.7
+Cà Mau,province,2023,626.2
+Cà Mau,province,2024,636.3
+Cà Mau,province,2025,636.4

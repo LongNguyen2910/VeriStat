@@ -1,0 +1,993 @@
+{
+  "db_path": "data/processed/veristat.db",
+  "status": "PASS",
+  "failures": [],
+  "summary": {
+    "total_tables": 32,
+    "domain_counts": {
+      "lao_dong": 6,
+      "doanh_nghiep": 8,
+      "dan_so": 6,
+      "giao_duc": 6,
+      "y_te": 6
+    },
+    "admin_mapping_rows": 93,
+    "unexpected_other_count": 0,
+    "additive_checks_total": 36,
+    "additive_checks_passed": 36,
+    "max_additive_rel_diff_pct": 0.0008
+  },
+  "fts_sanity": {
+    "dân số trung bình": 5,
+    "Bà Rịa - Vũng Tàu (NG2025) * \"doanh nghiệp\"": 5,
+    "sáp nhập 34 tỉnh Nghị quyết 202": 5
+  },
+  "additive_reconciliation": [
+    {
+      "table_id": "NG2025_T015",
+      "year": 2025,
+      "country_value": 102345.3,
+      "sum_provinces": 102345.2,
+      "rel_diff_pct": 0.0001,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T017",
+      "year": 2020,
+      "country_value": 97582.7,
+      "sum_provinces": 97582.4,
+      "rel_diff_pct": 0.0003,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T017",
+      "year": 2022,
+      "country_value": 99467.9,
+      "sum_provinces": 99468.3,
+      "rel_diff_pct": 0.0004,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T017",
+      "year": 2023,
+      "country_value": 100309.2,
+      "sum_provinces": 100309.0,
+      "rel_diff_pct": 0.0002,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T017",
+      "year": 2024,
+      "country_value": 101343.8,
+      "sum_provinces": 101343.9,
+      "rel_diff_pct": 0.0001,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T017",
+      "year": 2025,
+      "country_value": 102345.3,
+      "sum_provinces": 102345.2,
+      "rel_diff_pct": 0.0001,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T020",
+      "year": 2020,
+      "country_value": 35906.4,
+      "sum_provinces": 35906.4,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T020",
+      "year": 2022,
+      "country_value": 37347.5,
+      "sum_provinces": 37347.8,
+      "rel_diff_pct": 0.0008,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T020",
+      "year": 2023,
+      "country_value": 38219.7,
+      "sum_provinces": 38219.7,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T020",
+      "year": 2024,
+      "country_value": 39007.3,
+      "sum_provinces": 39007.4,
+      "rel_diff_pct": 0.0003,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T020",
+      "year": 2025,
+      "country_value": 39551.3,
+      "sum_provinces": 39551.4,
+      "rel_diff_pct": 0.0003,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T046",
+      "year": 2020,
+      "country_value": 54842.9,
+      "sum_provinces": 54843.0,
+      "rel_diff_pct": 0.0002,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T046",
+      "year": 2022,
+      "country_value": 51704.9,
+      "sum_provinces": 51704.8,
+      "rel_diff_pct": 0.0002,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T046",
+      "year": 2023,
+      "country_value": 52376.0,
+      "sum_provinces": 52375.9,
+      "rel_diff_pct": 0.0002,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T046",
+      "year": 2024,
+      "country_value": 52942.3,
+      "sum_provinces": 52942.1,
+      "rel_diff_pct": 0.0004,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T046",
+      "year": 2025,
+      "country_value": 53559.6,
+      "sum_provinces": 53559.6,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T053",
+      "year": 2020,
+      "country_value": 53609.6,
+      "sum_provinces": 53609.5,
+      "rel_diff_pct": 0.0002,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T053",
+      "year": 2022,
+      "country_value": 50604.7,
+      "sum_provinces": 50604.6,
+      "rel_diff_pct": 0.0002,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T053",
+      "year": 2023,
+      "country_value": 51287.0,
+      "sum_provinces": 51287.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T053",
+      "year": 2024,
+      "country_value": 51860.3,
+      "sum_provinces": 51860.6,
+      "rel_diff_pct": 0.0006,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T053",
+      "year": 2025,
+      "country_value": 52475.0,
+      "sum_provinces": 52475.2,
+      "rel_diff_pct": 0.0004,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T136",
+      "year": 2020,
+      "country_value": 684260.0,
+      "sum_provinces": 684260.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T136",
+      "year": 2021,
+      "country_value": 718697.0,
+      "sum_provinces": 718697.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T136",
+      "year": 2022,
+      "country_value": 735455.0,
+      "sum_provinces": 735455.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T136",
+      "year": 2023,
+      "country_value": 778429.0,
+      "sum_provinces": 778429.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T136",
+      "year": 2024,
+      "country_value": 838753.0,
+      "sum_provinces": 838753.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T139",
+      "year": 2020,
+      "country_value": 14702546.0,
+      "sum_provinces": 14702546.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T139",
+      "year": 2021,
+      "country_value": 14799642.0,
+      "sum_provinces": 14799642.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T139",
+      "year": 2022,
+      "country_value": 15341632.0,
+      "sum_provinces": 15341632.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T139",
+      "year": 2023,
+      "country_value": 15581544.0,
+      "sum_provinces": 15581544.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T139",
+      "year": 2024,
+      "country_value": 16365790.0,
+      "sum_provinces": 16365790.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T151",
+      "year": 2020,
+      "country_value": 27374963.0,
+      "sum_provinces": 27374963.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T151",
+      "year": 2021,
+      "country_value": 30407364.0,
+      "sum_provinces": 30407364.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T151",
+      "year": 2022,
+      "country_value": 35961881.0,
+      "sum_provinces": 35961881.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T151",
+      "year": 2023,
+      "country_value": 36289544.0,
+      "sum_provinces": 36289545.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    },
+    {
+      "table_id": "NG2025_T151",
+      "year": 2024,
+      "country_value": 40068675.0,
+      "sum_provinces": 40068675.0,
+      "rel_diff_pct": 0.0,
+      "passed": true
+    }
+  ],
+  "table_reports": [
+    {
+      "table_id": "B1026_S05",
+      "sql_table": "stat_b1026_s05",
+      "domain": "lao_dong",
+      "row_count": 35,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 34
+      }
+    },
+    {
+      "table_id": "B1026_S06",
+      "sql_table": "stat_b1026_s06",
+      "domain": "doanh_nghiep",
+      "row_count": 8,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "B1026_S07",
+      "sql_table": "stat_b1026_s07",
+      "domain": "doanh_nghiep",
+      "row_count": 20,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "B1026_S08",
+      "sql_table": "stat_b1026_s08",
+      "domain": "doanh_nghiep",
+      "row_count": 20,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "B1026_S10",
+      "sql_table": "stat_b1026_s10",
+      "domain": "doanh_nghiep",
+      "row_count": 20,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T015",
+      "sql_table": "stat_ng2025_t015",
+      "domain": "dan_so",
+      "row_count": 70,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T017",
+      "sql_table": "stat_ng2025_t017",
+      "domain": "dan_so",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T020",
+      "sql_table": "stat_ng2025_t020",
+      "domain": "dan_so",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T026",
+      "sql_table": "stat_ng2025_t026",
+      "domain": "dan_so",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T034",
+      "sql_table": "stat_ng2025_t034",
+      "domain": "dan_so",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T039",
+      "sql_table": "stat_ng2025_t039",
+      "domain": "dan_so",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T046",
+      "sql_table": "stat_ng2025_t046",
+      "domain": "lao_dong",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T053",
+      "sql_table": "stat_ng2025_t053",
+      "domain": "lao_dong",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T061",
+      "sql_table": "stat_ng2025_t061",
+      "domain": "lao_dong",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T064",
+      "sql_table": "stat_ng2025_t064",
+      "domain": "lao_dong",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T068",
+      "sql_table": "stat_ng2025_t068",
+      "domain": "lao_dong",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T136",
+      "sql_table": "stat_ng2025_t136",
+      "domain": "doanh_nghiep",
+      "row_count": 355,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "other": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T139",
+      "sql_table": "stat_ng2025_t139",
+      "domain": "doanh_nghiep",
+      "row_count": 355,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "other": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T151",
+      "sql_table": "stat_ng2025_t151",
+      "domain": "doanh_nghiep",
+      "row_count": 355,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "other": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T163",
+      "sql_table": "stat_ng2025_t163",
+      "domain": "doanh_nghiep",
+      "row_count": 355,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "other": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T331",
+      "sql_table": "stat_ng2025_t331",
+      "domain": "giao_duc",
+      "row_count": 110,
+      "null_rate_pct": 0.91,
+      "col_nulls": {
+        "gia_tri": 3
+      },
+      "years": [
+        "2020-2021",
+        "2022-2023",
+        "2023-2024",
+        "2024-2025",
+        "2025-2026"
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T332",
+      "sql_table": "stat_ng2025_t332",
+      "domain": "giao_duc",
+      "row_count": 220,
+      "null_rate_pct": 2.5,
+      "col_nulls": {
+        "gia_tri": 22
+      },
+      "years": [
+        "2020-2021",
+        "2022-2023",
+        "2023-2024",
+        "2024-2025",
+        "2025-2026"
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T333",
+      "sql_table": "stat_ng2025_t333",
+      "domain": "giao_duc",
+      "row_count": 80,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        "2020-2021",
+        "2022-2023",
+        "2023-2024",
+        "2024-2025",
+        "2025-2026"
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T335",
+      "sql_table": "stat_ng2025_t335",
+      "domain": "giao_duc",
+      "row_count": 80,
+      "null_rate_pct": 6.67,
+      "col_nulls": {
+        "gia_tri": 16
+      },
+      "years": [
+        "2020-2021",
+        "2022-2023",
+        "2023-2024",
+        "2024-2025",
+        "2025-2026"
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T336",
+      "sql_table": "stat_ng2025_t336",
+      "domain": "giao_duc",
+      "row_count": 40,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        "2020-2021",
+        "2022-2023",
+        "2023-2024",
+        "2024-2025",
+        "2025-2026"
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T338",
+      "sql_table": "stat_ng2025_t338",
+      "domain": "giao_duc",
+      "row_count": 90,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T339",
+      "sql_table": "stat_ng2025_t339",
+      "domain": "y_te",
+      "row_count": 90,
+      "null_rate_pct": 4.81,
+      "col_nulls": {
+        "gia_tri": 13
+      },
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T340",
+      "sql_table": "stat_ng2025_t340",
+      "domain": "y_te",
+      "row_count": 40,
+      "null_rate_pct": 3.33,
+      "col_nulls": {
+        "gia_tri": 4
+      },
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T341",
+      "sql_table": "stat_ng2025_t341",
+      "domain": "y_te",
+      "row_count": 75,
+      "null_rate_pct": 21.33,
+      "col_nulls": {
+        "gia_tri": 48
+      },
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": null
+    },
+    {
+      "table_id": "NG2025_T356",
+      "sql_table": "stat_ng2025_t356",
+      "domain": "y_te",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T366",
+      "sql_table": "stat_ng2025_t366",
+      "domain": "y_te",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    },
+    {
+      "table_id": "NG2025_T371",
+      "sql_table": "stat_ng2025_t371",
+      "domain": "y_te",
+      "row_count": 350,
+      "null_rate_pct": 0.0,
+      "col_nulls": {},
+      "years": [
+        2020,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "geo_unique_counts": {
+        "country": 1,
+        "province": 63,
+        "region": 6
+      }
+    }
+  ],
+  "manual_spot_check_samples": [
+    {
+      "table_id": "NG2025_T020",
+      "title": "Dân số thành thị trung bình phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Phú Yên",
+      "geo_level": "province",
+      "period": 2024,
+      "value": 292.1,
+      "unit": "nghìn người"
+    },
+    {
+      "table_id": "NG2025_T061",
+      "title": "Tỷ lệ lao động từ 15 tuổi trở lên đã qua đào tạo phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Cả nước",
+      "geo_level": "country",
+      "period": 2023,
+      "value": 27.2,
+      "unit": "%"
+    },
+    {
+      "table_id": "NG2025_T039",
+      "title": "Tuổi thọ trung bình tính từ lúc sinh phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Đắk Nông",
+      "geo_level": "province",
+      "period": 2023,
+      "value": 71.6,
+      "unit": "năm"
+    },
+    {
+      "table_id": "NG2025_T366",
+      "title": "Tỷ lệ hộ nghèo phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Đắk Lắk",
+      "geo_level": "province",
+      "period": 2022,
+      "value": 8.2,
+      "unit": "%"
+    },
+    {
+      "table_id": "NG2025_T046",
+      "title": "Lực lượng lao động từ 15 tuổi trở lên phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Nghệ An",
+      "geo_level": "province",
+      "period": 2020,
+      "value": 1927.0,
+      "unit": "nghìn người"
+    },
+    {
+      "table_id": "NG2025_T034",
+      "title": "Tỷ lệ tăng dân số phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "TP. Hồ Chí Minh",
+      "geo_level": "province",
+      "period": 2025,
+      "value": 1.54,
+      "unit": "%"
+    },
+    {
+      "table_id": "NG2025_T064",
+      "title": "Năng suất lao động phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Tiền Giang",
+      "geo_level": "province",
+      "period": 2020,
+      "value": 91.4,
+      "unit": "triệu đồng/lao động"
+    },
+    {
+      "table_id": "NG2025_T356",
+      "title": "Thu nhập bình quân một lao động đang làm việc phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Vĩnh Phúc",
+      "geo_level": "province",
+      "period": 2023,
+      "value": 8223.2,
+      "unit": "nghìn đồng/tháng"
+    },
+    {
+      "table_id": "NG2025_T026",
+      "title": "Tỷ suất sinh thô phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Hải Dương",
+      "geo_level": "province",
+      "period": 2023,
+      "value": 14.7,
+      "unit": "‰"
+    },
+    {
+      "table_id": "NG2025_T136",
+      "title": "Số doanh nghiệp đang hoạt động có kết quả SXKD tại thời điểm 31/12 hàng năm phân theo địa phương",
+      "source_ref": "NG-TOAN-QUOC-2025-1.pdf",
+      "entity": "Ninh Bình",
+      "geo_level": "province",
+      "period": 2024,
+      "value": 4901.0,
+      "unit": "doanh nghiệp"
+    }
+  ]
+}
