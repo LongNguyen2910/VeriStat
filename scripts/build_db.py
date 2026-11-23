@@ -23,7 +23,6 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
-import pymupdf
 import yaml
 
 from veristat.data.admin_mapping import populate_admin_mapping
@@ -42,17 +41,6 @@ _ADMIN_MERGER_NOTE = (
     "bảng B1026_S05 từ Biểu tháng 10/2026 dùng cơ cấu 34 tỉnh + Cả nước. "
     "Tra cứu bảng admin_mapping (cột canonical_name, canonical_2026, geo_level) để ánh xạ và tránh cộng trùng."
 )
-
-
-def _extract_glossary_text(pdf_path: Path, pages: list[int]) -> str:
-    """Extract cleaned methodology/glossary text from specified PDF pages."""
-    chunks: list[str] = []
-    with pymupdf.open(str(pdf_path)) as doc:
-        for pno in pages:
-            text = doc[pno - 1].get_text("text")
-            cleaned = " ".join(line.strip() for line in text.splitlines() if line.strip())
-            chunks.append(cleaned)
-    return "\n".join(chunks)
 
 
 def build_database(
@@ -127,22 +115,7 @@ def build_database(
             "columns": list(clean_df.columns),
         })
 
-    # Ingest GSO glossary/methodology sections into docs_glossary FTS5
-    glossary_count = 0
-    if pdf_path.exists():
-        for sec in cfg.get("glossary_sections", []):
-            sec_id = f"GLOSSARY_{str(sec['domain']).upper()}"
-            content = _extract_glossary_text(pdf_path, list(sec["pdf_pages"]))
-            ingest_glossary_section(
-                conn,
-                section_id=sec_id,
-                title=str(sec["title"]),
-                domain=str(sec["domain"]),
-                content=content,
-            )
-            glossary_count += 1
-
-    # Always ingest administrative boundary merger note
+    # Always ingest administrative boundary merger note (keeps --from-csv 100% equivalent)
     ingest_glossary_section(
         conn,
         section_id="GLOSSARY_ADMIN_MERGER_2025",
@@ -150,7 +123,6 @@ def build_database(
         domain="dan_so",
         content=_ADMIN_MERGER_NOTE,
     )
-    glossary_count += 1
 
     conn.close()
     return {
@@ -158,7 +130,6 @@ def build_database(
         "admin_mapping_rows": admin_count,
         "tables_ingested": len(ingested_summary),
         "total_data_rows": sum(x["rows"] for x in ingested_summary),
-        "glossary_sections_ingested": glossary_count,
         "csv_dir": str(csv_dir) if csv_dir is not None else None,
     }
 
