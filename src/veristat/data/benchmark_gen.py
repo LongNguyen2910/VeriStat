@@ -347,7 +347,7 @@ def _gen_growth_candidates(db_path: Path, rng: random.Random) -> list[dict[str, 
         parts = ", ".join(_MERGED_MULTI_2025[m_prov])
         q = (
             f"Theo cơ cấu hành chính sau sáp nhập năm 2025 (NQ 202/2025/QH15), tổng {ind} "
-            f"của tỉnh/thành phố {m_prov} mới (gộp từ {parts}) tăng bao nhiêu % từ năm {y0} đến năm {y1}?"
+            f"của {m_prov} mới tăng bao nhiêu % từ năm {y0} đến năm {y1}?"
         )
         code = (
             f"s0 = conn.execute(\"SELECT SUM(t.gia_tri) FROM {sql_tbl} t "
@@ -474,7 +474,7 @@ def _gen_share_candidates(db_path: Path, rng: random.Random) -> list[dict[str, A
     for idx, (tid, ind, _unit, _dom, years, _add) in enumerate(additive_tables):
         sql_tbl = f"stat_{tid.lower()}"
         for yr in (years[0], years[2], years[-1]):
-            q = f"Năm {yr}, tổng {ind} của 3 tỉnh/thành phố dẫn đầu cả nước chiếm bao nhiêu % so với Cả nước?"
+            q = f"Năm {yr}, tổng {ind} của 3 tỉnh hoặc thành phố dẫn đầu cả nước chiếm bao nhiêu % so với Cả nước?"
             code = (
                 f"top3 = [r[0] for r in conn.execute(\"SELECT gia_tri FROM {sql_tbl} WHERE geo_level='province' AND nam={yr} ORDER BY gia_tri DESC LIMIT 3\").fetchall()]\n"
                 f"c = conn.execute(\"SELECT gia_tri FROM {sql_tbl} WHERE geo_level='country' AND nam={yr}\").fetchone()[0]\n"
@@ -490,7 +490,7 @@ def _gen_share_candidates(db_path: Path, rng: random.Random) -> list[dict[str, A
         yr = 2024 if j % 2 == 0 else 2022
         q = (
             f"Năm {yr}, lao động trong các doanh nghiệp đang hoạt động của {prov} "
-            f"chiếm bao nhiêu % tổng số lao động có việc làm của tỉnh (lưu ý quy đổi đơn vị nghìn người và người)?"
+            f"chiếm bao nhiêu % tổng số lao động có việc làm của tỉnh?"
         )
         code = (
             f"ent = conn.execute(\"SELECT gia_tri FROM stat_ng2025_t139 WHERE dia_phuong={prov!r} AND geo_level='province' AND nam={yr}\").fetchone()[0]\n"
@@ -513,8 +513,8 @@ def _gen_share_candidates(db_path: Path, rng: random.Random) -> list[dict[str, A
             yr = years[-1]
             parts = ", ".join(_MERGED_MULTI_2025[m_prov])
             q = (
-                f"Nếu gộp theo địa giới 34 tỉnh sau sáp nhập năm 2025, tỉnh/thành phố {m_prov} mới "
-                f"(gồm {parts}) chiếm bao nhiêu % tổng {ind} của Cả nước năm {yr}?"
+                f"Nếu gộp theo địa giới 34 tỉnh sau sáp nhập năm 2025, tỉnh hoặc thành phố {m_prov} mới "
+                f"chiếm bao nhiêu % tổng {ind} của cả nước năm {yr}?"
             )
             code = (
                 f"s = conn.execute(\"SELECT SUM(t.gia_tri) FROM {sql_tbl} t "
@@ -539,11 +539,11 @@ def _gen_ranking_candidates(db_path: Path, rng: random.Random) -> list[dict[str,
     try:
         # 1. EASY: Top-1 highest or lowest province (entity)
         max_templates = [
-            "Năm {yr}, tỉnh/thành phố nào có {ind} cao nhất cả nước?",
+            "Năm {yr}, tỉnh hoặc thành phố nào có {ind} cao nhất cả nước?",
             "Địa phương cấp tỉnh nào đứng đầu cả nước về {ind} trong năm {yr}?",
         ]
         min_templates = [
-            "Năm {yr}, tỉnh/thành phố nào có {ind} thấp nhất cả nước?",
+            "Năm {yr}, tỉnh hoặc thành phố nào có {ind} thấp nhất cả nước?",
             "Địa phương cấp tỉnh nào ghi nhận mức {ind} thấp nhất trong năm {yr}?",
         ]
         for idx, (tid, ind, _unit, _dom, years, _add) in enumerate(_PROVINCIAL_TABLES):
@@ -590,7 +590,7 @@ def _gen_ranking_candidates(db_path: Path, rng: random.Random) -> list[dict[str,
             ).fetchall()
             vals = [float(r[1]) for r in rows]
             if not has_ambiguous_topk_tie(vals, k=3):
-                q = f"Tháng 10/2026 (theo cơ cấu 34 tỉnh sau sáp nhập), liệt kê theo thứ tự giảm dần 3 tỉnh/thành phố có {col_desc} cao nhất."
+                q = f"Tháng 10/2026 (theo cơ cấu 34 tỉnh sau sáp nhập), liệt kê theo thứ tự giảm dần 3 tỉnh hoặc thành phố có {col_desc} cao nhất."
                 code = (
                     f"result = [r[0] for r in conn.execute(\"SELECT dia_phuong FROM stat_b1026_s05 "
                     f"WHERE geo_level='province' AND {col} IS NOT NULL ORDER BY {col} DESC LIMIT 3\").fetchall()]"
@@ -657,7 +657,7 @@ def _gen_ranking_candidates(db_path: Path, rng: random.Random) -> list[dict[str,
                 ).fetchall()
                 g_vals = [float(r[1]) for r in g_rows]
                 if len(g_vals) >= 10 and not has_ambiguous_topk_tie(g_vals, k=3):
-                    q_g = f"Liệt kê theo thứ tự giảm dần 3 tỉnh/thành phố có tốc độ tăng trưởng (%) {ind} cao nhất giai đoạn {y0}–{y1}."
+                    q_g = f"Liệt kê theo thứ tự giảm dần 3 tỉnh hoặc thành phố có tốc độ tăng trưởng (%) {ind} cao nhất giai đoạn {y0}–{y1}."
                     code_g = (
                         f"result = [r[0] for r in conn.execute("
                         f"\"SELECT a.dia_phuong FROM {sql_tbl} a JOIN {sql_tbl} b ON a.dia_phuong = b.dia_phuong "
