@@ -1,5 +1,6 @@
 """Pure-Python + NumPy agent contracts, search algorithms, and evaluation utilities."""
 
+from veristat.agents.mcts import MCTSNode, MCTSResult, canonical_action_key, run_mcts
 from veristat.agents.types import (
     FinalAnswer,
     LLMClient,
@@ -17,6 +18,8 @@ __all__ = [
     "FinalAnswer",
     "LLMClient",
     "LLMResponse",
+    "MCTSNode",
+    "MCTSResult",
     "ReActStep",
     "StepEnvironment",
     "StepObservation",
@@ -24,4 +27,6 @@ __all__ = [
     "ToolAction",
     "ToolName",
     "Trajectory",
+    "canonical_action_key",
+    "run_mcts",
 ]
