@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T5]{fontenc}
+\else
+  \usepackage{fontspec}
+\fi
+\usepackage[vietnamese]{babel}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Định lý}[section]
+\newtheorem{proposition}[theorem]{Mệnh đề}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Nhận xét}
+
+\title{VeriStat (Đề tài 18) --- Bản xem trước Phần B (Lý thuyết) \& Phần C (Bài tập C.1--C.3)}
+\author{Nhóm 3 --- Phần phụ trách của Sơn}
+\date{25/11/2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\input{sections/part_b_theory}
+\newpage
+\input{sections/part_c_exercises}
+
+\end{document}
