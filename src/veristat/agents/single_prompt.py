@@ -13,7 +13,9 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 import time
+import urllib.request
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -332,6 +334,17 @@ def run_batch_single_prompt(
     return summary, records
 
 
+def check_vllm_connection(base_url: str, timeout: float = 2.0) -> bool:
+    """Quick pre-flight check if vLLM server is responding."""
+    try:
+        url = f"{base_url.rstrip('/')}/models"
+        req = urllib.request.Request(url, method="GET")
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.status in (200, 404, 405)
+    except Exception:
+        return False
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="VeriStat Single Prompt Baseline Runner (A.4 / D.3)")
     parser.add_argument("--questions", type=Path, default=Path("data/benchmark/dev_30.jsonl"))
@@ -348,6 +361,24 @@ def main() -> None:
     if args.mock:
         raw_llm = MockLLMClient()
     else:
+        if not check_vllm_connection(args.vllm_url):
+            print(
+                "\n"
+                + "=" * 70
+                + "\n[LỖI KẾT NỐI SERVER vLLM]\n"
+                f"Không thể kết nối tới server vLLM tại: {args.vllm_url}\n"
+                "Nguyên nhân: Hiện tại không có server vLLM nào đang chạy trên cổng này.\n\n"
+                "HƯỚNG DẪN XỬ LÝ:\n"
+                "1. Nếu bạn đang chạy thử nghiệm cục bộ (CPU, không có GPU / vLLM):\n"
+                "   Vui lòng thêm cờ `--mock`:\n"
+                f"   uv run python scripts/run_single_prompt.py --mock --questions {args.questions} --out {args.out}\n\n"
+                "2. Nếu bạn đang chạy trên Google Colab Pro (GPU L4/A100):\n"
+                "   Hãy khởi động server vLLM trước trong một cell riêng:\n"
+                f"   !python -m vllm.entrypoints.openai.api_server --model {args.model} --port 8000\n"
+                + "=" * 70
+                + "\n"
+            )
+            sys.exit(1)
         raw_llm = VLLMClient(config=VLLMConfig(base_url=args.vllm_url, model=args.model))
 
     adaptive_llm = AdaptiveLLMClient(backend_client=raw_llm, model_name=args.model)

@@ -17,3 +17,6 @@ docs/superpowers/
 
 # Generated local SQLite databases (rebuild via scripts/build_db.py)
 data/processed/*.db
+
+# Evaluation results & checkpoints
+results/
