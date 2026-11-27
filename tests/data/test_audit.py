@@ -1,3 +1,4 @@
+import pytest
 from pathlib import Path
 from veristat.data.audit import (
     extract_pdf_toc,
@@ -6,6 +7,10 @@ from veristat.data.audit import (
 )
 
 
+@pytest.mark.skipif(
+    not Path("NG-TOAN-QUOC-2025-1.pdf").exists() or not Path("2.-Bieu-thang-10.2026.xlsx").exists(),
+    reason="Raw GSO 2025 PDF or Oct 2026 Excel not found in workspace root",
+)
 def test_audit_real_source_files():
     pdf_path = Path("NG-TOAN-QUOC-2025-1.pdf")
     xlsx_path = Path("2.-Bieu-thang-10.2026.xlsx")
@@ -19,6 +24,10 @@ def test_audit_real_source_files():
     assert all("name" in s and "nrows" in s and "preview_rows" in s for s in sheets)
 
 
+@pytest.mark.skipif(
+    not Path("NG-TOAN-QUOC-2025-1.pdf").exists(),
+    reason="Raw GSO 2025 PDF not found in workspace root",
+)
 def test_scan_chapter_tables_extracts_catalog():
     pdf_path = Path("NG-TOAN-QUOC-2025-1.pdf")
     edu_tables = scan_chapter_tables(pdf_path, toc_pdf_pages=[830, 831], domain="giao_duc", cover_offset=1)

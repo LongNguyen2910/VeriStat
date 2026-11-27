@@ -5,7 +5,7 @@ and Sơn (SC/Verifier/Best-of-n/MCTS/Eval).
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, Literal, Protocol
+from typing import Any, Literal, Protocol, runtime_checkable
 
 from veristat.data.schema import BenchmarkQuestion
 
@@ -248,6 +248,7 @@ class Trajectory:
         )
 
 
+@runtime_checkable
 class LLMClient(Protocol):
     """OpenAI-compatible / vLLM client (with SQLite cache) implemented by Khoa."""
 
@@ -263,6 +264,7 @@ class LLMClient(Protocol):
         ...
 
 
+@runtime_checkable
 class StepEnvironment(Protocol):
     """Step-level ReAct + 3-tool environment shared by ReAct, SC, BoN, and MCTS."""
 
