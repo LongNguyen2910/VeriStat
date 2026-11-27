@@ -1,0 +1,350 @@
+\section{Nền tảng Lý thuyết (Phần B)}
+\label{sec:part-b}
+
+Phần này trình bày cơ sở toán học cho kiến trúc tìm kiếm và kiểm chứng của hệ thống \textbf{VeriStat}, kết nối trực tiếp các định lý lý thuyết (B.1--B.5) với các mô-đun cài đặt từ đầu trong \texttt{src/veristat/agents/} và \texttt{src/veristat/verifier/}.
+
+% ----------------------------------------------------------------------
+\subsection{B.1. Mô hình hóa Tác tử Công cụ dưới dạng POMDP và Cập nhật Niềm tin Bayes}
+\label{subsec:b1-pomdp}
+
+\paragraph{Định nghĩa hình thức POMDP cho tác tử VeriStat.}
+Xét bài toán trả lời một câu hỏi thống kê $q$ dựa trên cơ sở dữ liệu chỉ đọc $\mathcal{D}$ (\texttt{veristat.db}). Do tác tử không quan sát trực tiếp toàn bộ bảng số liệu và đáp số chuẩn mà chỉ thu nhận thông tin từng phần qua kết quả thực thi công cụ, quá trình suy luận đa bước được mô hình hóa là một \emph{Quá trình quyết định Markov quan sát bộ phận} (POMDP) gồm 7 thành phần:
+\[
+  \mathcal{M} = (\mathcal{S}, \mathcal{A}, \mathcal{O}, T, Z, R, \gamma),
+\]
+trong đó:
+\begin{itemize}
+  \item \textbf{Không gian trạng thái ẩn $\mathcal{S}$:} Mỗi trạng thái $s_t \in \mathcal{S}$ mã hóa bộ $(q, \mathcal{D}, y^\star, \mathcal{K}_t, \text{safe}_t)$, với $y^\star$ là đáp số chuẩn ẩn chưa biết, $\mathcal{K}_t$ là tập dữ liệu và biến tính toán đã được truy xuất hợp lệ tới bước $t$, và $\text{safe}_t \in \{0, 1\}$ là cờ tuân thủ an toàn.
+  \item \textbf{Không gian hành động $\mathcal{A}$:} Tập các hành động công cụ có cấu trúc trong \texttt{ToolAction}:
+  \[
+    \mathcal{A} = \mathcal{A}_{\text{search\_docs}} \cup \mathcal{A}_{\text{query\_table}} \cup \mathcal{A}_{\text{run\_python}} \cup \mathcal{A}_{\text{final\_answer}}.
+  \]
+  \item \textbf{Không gian quan sát $\mathcal{O}$:} Tập các kết quả phản hồi \texttt{StepObservation} trả về từ công cụ (danh sách bảng từ FTS5, tối đa 200 dòng SQL kèm đơn vị, kết quả chuẩn hóa từ sandbox Python, hoặc thông báo lỗi/vi phạm an toàn).
+  \item \textbf{Hàm chuyển trạng thái $T(s' \mid s, a) = P(S_{t+1} = s' \mid S_t = s, A_t = a)$:} Phản ánh diễn tiến trạng thái suy luận (ví dụ: thực thi câu lệnh \texttt{query\_table} hợp lệ mở rộng $\mathcal{K}_t \to \mathcal{K}_{t+1}$; hành động vi phạm AST/mạng chuyển sang trạng thái hấp thụ $\text{safe}_{t+1} = 0$). Trong môi trường tĩnh với $\mathcal{D}$ bất biến, $T$ mang tính tất định theo cặp $(s, a)$.
+  \item \textbf{Mô hình quan sát $Z(o \mid s', a) = P(O_{t+1} = o \mid S_{t+1} = s', A_t = a)$:} Xác suất nhận được đầu ra công cụ $o$ (bao gồm nhiễu/cắt ngắn 200 dòng hoặc lỗi cú pháp) khi hệ thống ở trạng thái $s'$ sau hành động $a$.
+  \item \textbf{Hàm phần thưởng $R(s, a)$ và hệ số chiết khấu $\gamma \in (0, 1]$:} Thưởng đánh giá cuối $v \in [0, 1]$ từ Hybrid Verifier tại bước \texttt{final\_answer}, thưởng/phạt trung gian $v_{\text{int}} \in [0, 1]$ từ bộ luật Tầng 1, và phạt nặng đối với trạng thái vi phạm an toàn hoặc vượt ngân sách bước/token.
+\end{itemize}
+
+\paragraph{Lịch sử tương tác và Trạng thái niềm tin.}
+Gọi $h_t = (b_0, a_0, o_1, a_1, \dots, a_{t-1}, o_t)$ là lịch sử tương tác (tương ứng với chuỗi \texttt{ReActStep} trong \texttt{Trajectory.steps}) tới bước $t$, với $b_0(s) = P(S_0 = s)$ là phân phối tiên nghiệm ban đầu trên $\mathcal{S}$. \emph{Trạng thái niềm tin} (belief state) tại thời điểm $t$ là phân phối hậu nghiệm trên $\mathcal{S}$:
+\[
+  b_t(s) := P(S_t = s \mid h_t), \qquad \forall s \in \mathcal{S}.
+\]
+
+\begin{theorem}[Cập nhật niềm tin Bayes cho POMDP]
+\label{thm:b1-bayes}
+Giả sử tại mọi bước $t \ge 0$, mô hình thỏa mãn tính chất Markov của chuyển trạng thái, tính chất Markov của quan sát, và hành động $A_t = a_t$ được chọn chỉ dựa trên lịch sử $h_t$ (tức $P(S_t = s \mid h_t, a_t) = P(S_t = s \mid h_t) = b_t(s)$). Khi thực hiện hành động $a_t$ và thu nhận quan sát $o_{t+1}$ với xác suất biên $P(O_{t+1} = o_{t+1} \mid h_t, a_t) > 0$, niềm tin mới $b_{t+1}(s') := P(S_{t+1} = s' \mid h_t, a_t, o_{t+1})$ được cập nhật truy hồi theo công thức:
+\begin{equation}
+  b_{t+1}(s') = \eta \, Z(o_{t+1} \mid s', a_t) \sum_{s \in \mathcal{S}} T(s' \mid s, a_t) \, b_t(s),
+  \label{eq:b1-belief-update}
+\end{equation}
+trong đó hằng số chuẩn hóa là
+\[
+  \eta = \left[\sum_{\tilde{s} \in \mathcal{S}} Z(o_{t+1} \mid \tilde{s}, a_t) \sum_{s \in \mathcal{S}} T(\tilde{s} \mid s, a_t) \, b_t(s)\right]^{-1}.
+\]
+\end{theorem}
+
+\begin{proof}
+Áp dụng định lý Bayes cho phân phối có điều kiện theo $(h_t, a_t)$:
+\begin{align}
+  b_{t+1}(s')
+  &= P(S_{t+1} = s' \mid h_t, a_t, o_{t+1}) \nonumber \\
+  &= \frac{P(O_{t+1} = o_{t+1} \mid S_{t+1} = s', h_t, a_t) \, P(S_{t+1} = s' \mid h_t, a_t)}{P(O_{t+1} = o_{t+1} \mid h_t, a_t)}.
+  \label{eq:b1-step1}
+\end{align}
+Theo tính chất Markov của mô hình quan sát, $O_{t+1}$ độc lập có điều kiện với lịch sử $h_t$ khi biết $(S_{t+1}, A_t)$, nên
+\[
+  P(O_{t+1} = o_{t+1} \mid S_{t+1} = s', h_t, a_t) = P(O_{t+1} = o_{t+1} \mid S_{t+1} = s', a_t) = Z(o_{t+1} \mid s', a_t).
+\]
+Đối với tử số thứ hai trong \eqref{eq:b1-step1}, áp dụng công thức xác suất toàn phần qua trạng thái $S_t = s$:
+\begin{align*}
+  P(S_{t+1} = s' \mid h_t, a_t)
+  &= \sum_{s \in \mathcal{S}} P(S_{t+1} = s' \mid S_t = s, h_t, a_t) \, P(S_t = s \mid h_t, a_t).
+\end{align*}
+Theo tính chất Markov của chuyển trạng thái, $P(S_{t+1} = s' \mid S_t = s, h_t, a_t) = T(s' \mid s, a_t)$. Mặt khác, vì chính sách tác tử chọn $a_t$ chỉ dựa trên $h_t$ (không phụ thuộc trực tiếp vào trạng thái ẩn $S_t$), ta có $P(S_t = s \mid h_t, a_t) = P(S_t = s \mid h_t) = b_t(s)$. Do đó:
+\[
+  P(S_{t+1} = s' \mid h_t, a_t) = \sum_{s \in \mathcal{S}} T(s' \mid s, a_t) \, b_t(s).
+\]
+Cuối cùng, mẫu số trong \eqref{eq:b1-step1} độc lập với $s'$ và bằng tổng tử số trên mọi $\tilde{s} \in \mathcal{S}$:
+\[
+  P(O_{t+1} = o_{t+1} \mid h_t, a_t) = \sum_{\tilde{s} \in \mathcal{S}} Z(o_{t+1} \mid \tilde{s}, a_t) \sum_{s \in \mathcal{S}} T(\tilde{s} \mid s, a_t) \, b_t(s) = \frac{1}{\eta} > 0.
+\]
+Thay ba biểu thức trên vào \eqref{eq:b1-step1} thu được \eqref{eq:b1-belief-update}. Hơn nữa, vì $Z \ge 0$, $T \ge 0$, $b_t \ge 0$ và phép chia cho $1/\eta$ bảo toàn tổng bằng $1$, nên $b_{t+1}$ là một phân phối xác suất hợp lệ ($\sum_{s'} b_{t+1}(s') = 1$).
+\end{proof}
+
+\begin{remark}[Thống kê đủ của niềm tin và liên hệ tới MCTS]
+Từ \eqref{eq:b1-belief-update}, $b_{t+1}$ chỉ phụ thuộc vào $(b_t, a_t, o_{t+1})$ mà không cần lưu lại toàn bộ chi tiết xác suất quá khứ; do đó $b_t$ là một \emph{thống kê đủ} (sufficient statistic) của lịch sử $h_t$, biến POMDP gốc thành một \emph{Belief-MDP} trên không gian niềm tin. Trong cài đặt thực tế của VeriStat (\texttt{MCTSNode.history()} trong \texttt{mcts.py}), ngữ cảnh lời nhắc chứa toàn bộ chuỗi $(a_0, o_1, \dots, o_t)$ đóng vai trò biểu diễn xấp xỉ cho $b_t$ trên không gian ngôn ngữ tự nhiên.
+\end{remark}
+
+% ----------------------------------------------------------------------
+\subsection{B.2. Cận Hoeffding cho Bỏ phiếu Đa số (Nhị phân và Đa lớp)}
+\label{subsec:b2-hoeffding}
+
+Xét cơ chế \textbf{Self-Consistency} (\texttt{sc.py}) lấy mẫu $n$ quỹ đạo ReAct độc lập và có cùng phân phối (i.i.d.) $\hat{y}_1, \dots, \hat{y}_n$, mỗi quỹ đạo cho ra một đáp án chuẩn hóa sau khi gom cụm (theo sai số tương đối $< 0{,}1\%$ hoặc chuẩn hóa địa giới \texttt{admin\_mapping}).
+
+\paragraph{Bổ đề phụ (Bất đẳng thức Hoeffding).}
+Nếu $Z_1, \dots, Z_n$ là các biến ngẫu nhiên độc lập thỏa mãn $a_i \le Z_i \le b_i$ với mọi $i$, đặt $\bar{Z}_n = \frac{1}{n}\sum_{i=1}^n Z_i$, thì với mọi $\varepsilon > 0$:
+\[
+  P(\bar{Z}_n - \mathbb{E}[\bar{Z}_n] \le -\varepsilon) \le \exp\!\left(-\frac{2n^2 \varepsilon^2}{\sum_{i=1}^n (b_i - a_i)^2}\right).
+\]
+
+\begin{theorem}[Cận Hoeffding cho Bỏ phiếu Đa số Nhị phân]
+\label{thm:b2-binary}
+Giả sử bài toán có 2 đáp án khả dĩ (đúng $y^\star$ và sai), mỗi lần gọi tác tử độc lập trả về đúng với xác suất $p > \tfrac{1}{2}$. Đặt $X_i = \mathbb{I}[\hat{y}_i = y^\star] \stackrel{\text{i.i.d.}}{\sim} \text{Bernoulli}(p)$ và $\hat{y}_{\text{maj}}$ thắng khi nhận ít nhất $m = \lfloor n/2 \rfloor + 1$ phiếu (chú ý khi $n$ chẵn, hòa $n/2$ phiếu được tính về phía sai). Khi đó:
+\begin{equation}
+  P(\hat{y}_{\text{maj}} \neq y^\star) \le \exp\!\left(-2n\left(p - \frac{1}{2}\right)^2\right), \qquad
+  P(\hat{y}_{\text{maj}} = y^\star) \ge 1 - \exp\!\left(-2n\left(p - \frac{1}{2}\right)^2\right).
+  \label{eq:b2-binary}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Sự kiện bỏ phiếu sai xảy ra khi tổng số phiếu đúng $S_n = \sum_{i=1}^n X_i \le m - 1 = \lfloor n/2 \rfloor$. Chia cả hai vế cho $n$, ta có $\lfloor n/2 \rfloor / n \le \tfrac{1}{2}$ với cả $n$ lẻ và $n$ chẵn, suy ra
+\[
+  \{\hat{y}_{\text{maj}} \neq y^\star\} = \{S_n \le \lfloor n/2 \rfloor\} \subseteq \left\{\frac{1}{n} \sum_{i=1}^n X_i \le \frac{1}{2}\right\} = \left\{\bar{X}_n - p \le -\left(p - \frac{1}{2}\right)\right\}.
+\]
+Vì $X_i \in [0, 1]$ ($b_i - a_i = 1$), $\mathbb{E}[\bar{X}_n] = p$ và $\varepsilon = p - \tfrac{1}{2} > 0$, áp dụng bất đẳng thức Hoeffding thu được trực tiếp:
+\[
+  P(\hat{y}_{\text{maj}} \neq y^\star) \le P\!\left(\bar{X}_n - p \le -\left(p - \frac{1}{2}\right)\right) \le \exp\!\left(-2n\left(p - \frac{1}{2}\right)^2\right).
+\]
+Lấy phần bù cho $P(\hat{y}_{\text{maj}} = y^\star) = 1 - P(\hat{y}_{\text{maj}} \neq y^\star)$ suy ra bất đẳng thức thứ hai trong \eqref{eq:b2-binary}.
+\end{proof}
+
+\begin{theorem}[Điều kiện đủ và Cận Hoeffding cho Bỏ phiếu Đa lớp]
+\label{thm:b2-multiclass}
+Giả sử đầu ra chuẩn hóa thuộc $K \ge 2$ lớp $\{1, \dots, K\}$ với lớp đúng là $c$ và phân phối xác suất i.i.d.\ $p_j = P(\hat{y}_i = j)$. Đặt $C_n(j) = \sum_{i=1}^n \mathbb{I}[\hat{y}_i = j]$ là số phiếu của lớp $j$ và $\hat{y}_{\text{plur}} \in \arg\max_j C_n(j)$ (trường hợp hòa nhiều lớp thắng được tính là có thể sai). Nếu điều kiện biên dương sau đây thỏa mãn:
+\begin{equation}
+  p_c > p_{\max} := \max_{j \neq c} p_j \quad \Longleftrightarrow \quad \Delta := p_c - p_{\max} > 0,
+  \label{eq:b2-multiclass-cond}
+\end{equation}
+thì xác suất bỏ phiếu đa lớp (plurality voting) chọn sai giảm theo hàm mũ theo $n$:
+\begin{equation}
+  P(\hat{y}_{\text{plur}} \neq c) \le \sum_{j \neq c} \exp\!\left(-\frac{n \, \Delta_j^2}{2}\right) \le (K - 1)\exp\!\left(-\frac{n \, \Delta^2}{2}\right) \xrightarrow{n \to \infty} 0,
+  \label{eq:b2-multiclass-bound}
+\end{equation}
+trong đó $\Delta_j := p_c - p_j \ge \Delta > 0$ với mọi $j \neq c$.
+\end{theorem}
+
+\begin{proof}
+Lớp đúng $c$ không thắng tuyệt đối chỉ khi tồn tại ít nhất một lớp $j \neq c$ đạt số phiếu lớn hơn hoặc bằng $c$, tức là:
+\[
+  \{\hat{y}_{\text{plur}} \neq c\} \subseteq \bigcup_{j \neq c} \{C_n(j) \ge C_n(c)\}.
+\]
+Áp dụng bất đẳng thức hợp (Union Bound):
+\[
+  P(\hat{y}_{\text{plur}} \neq c) \le \sum_{j \neq c} P(C_n(c) - C_n(j) \le 0).
+\]
+Với mỗi $j \neq c$ cố định, đặt biến ngẫu nhiên đối xứng hóa từng cặp
+\[
+  D_{i,j} := \mathbb{I}[\hat{y}_i = c] - \mathbb{I}[\hat{y}_i = j], \qquad i = 1, \dots, n.
+\]
+Các biến $D_{1,j}, \dots, D_{n,j}$ độc lập, bị chặn trong $[-1, 1]$ (nên độ dài khoảng $b_i - a_i = 2$), và có kỳ vọng $\mathbb{E}[D_{i,j}] = p_c - p_j = \Delta_j > 0$. Đặt $\bar{D}_j = \frac{1}{n}\sum_{i=1}^n D_{i,j} = \frac{1}{n}(C_n(c) - C_n(j))$. Sự kiện $\{C_n(c) - C_n(j) \le 0\}$ tương đương với $\{\bar{D}_j - \Delta_j \le -\Delta_j\}$. Áp dụng bất đẳng thức Hoeffding với $(b_i - a_i)^2 = 4$ và $\varepsilon = \Delta_j > 0$:
+\[
+  P(C_n(c) - C_n(j) \le 0) \le \exp\!\left(-\frac{2n^2 \Delta_j^2}{4n}\right) = \exp\!\left(-\frac{n \Delta_j^2}{2}\right).
+\]
+Cộng trên $K - 1$ lớp $j \neq c$ và dùng $\Delta_j \ge \Delta$ ta thu được \eqref{eq:b2-multiclass-bound}. Khi $K$ hữu hạn và $\Delta > 0$, vế phải tiến về $0$ theo tốc độ hàm mũ khi $n \to \infty$. Lưu ý rằng \eqref{eq:b2-multiclass-cond} yếu hơn nhiều so với $p_c > \tfrac{1}{2}$: ngay cả khi $p_c = 0{,}35$ và các lớp sai phân tán đều ($p_j < 0{,}35$), Self-Consistency vẫn hội tụ về đáp án đúng.
+\end{proof}
+
+% ----------------------------------------------------------------------
+\subsection{B.3. Phân tích Xác suất Chọn đúng của Best-of-$n$ với Bộ kiểm chứng Không hoàn hảo}
+\label{subsec:b3-best-of-n}
+
+Xét thuật toán \textbf{Best-of-$n$} (\texttt{best\_of\_n.py}) với chế độ phân loại nhị phân theo ngưỡng $\tau$: sinh $n$ lời giải ứng viên i.i.d.\ $Y_1, \dots, Y_n$, mỗi lời giải đúng với xác suất $p = P(C_i = 1) \in (0, 1)$, trong đó $C_i \in \{0, 1\}$ chỉ báo lời giải $i$ đúng hay sai. Bộ kiểm chứng nhị phân $V_i \in \{0, 1\}$ (với $V_i = \mathbb{I}[\text{score}_i \ge \tau]$) được đặc trưng bởi tỷ lệ dương tính thật và dương tính giả:
+\[
+  \text{TPR} := P(V_i = 1 \mid C_i = 1) \in (0, 1], \qquad
+  \text{FPR} := P(V_i = 1 \mid C_i = 0) \in [0, 1),
+\]
+sao cho xác suất một lời giải được chấp nhận là
+\[
+  q_{\text{acc}} := P(V_i = 1) = p \cdot \text{TPR} + (1 - p) \cdot \text{FPR}.
+\]
+Giả sử các cặp $(C_i, V_i)$ độc lập cùng phân phối với $q_{\text{acc}} \in (0, 1)$, và gọi $A = \{i \in \{1,\dots,n\} : V_i = 1\}$ là tập các lời giải được bộ kiểm chứng chấp nhận, với $K = |A| \sim \text{Binomial}(n, q_{\text{acc}})$. Nếu $K \ge 1$, tác tử chọn ngẫu nhiên đều một ứng viên từ $A$.
+
+\begin{theorem}[Xác suất Chọn đúng và Giới hạn Tiệm cận của Best-of-$n$]
+\label{thm:b3-best-of-n}
+Đặt xác suất đúng hậu nghiệm khi được chấp nhận và khi bị từ chối lần lượt là:
+\[
+  p_{\text{cond}} := P(C_i = 1 \mid V_i = 1) = \frac{p \cdot \text{TPR}}{q_{\text{acc}}}, \qquad
+  p_{\text{rej}} := P(C_i = 1 \mid V_i = 0) = \frac{p(1 - \text{TPR})}{1 - q_{\text{acc}}}.
+\]
+Xác suất chọn được lời giải đúng dưới hai quy ước khi không có ứng viên nào được chấp nhận ($K = 0$) lần lượt là:
+\begin{enumerate}
+  \item \textbf{Quy ước từ chối trả lời (abstain, $\text{correct}=0$ khi $K=0$):}
+  \begin{equation}
+    P_{\text{abstain}}(n) = \bigl(1 - (1 - q_{\text{acc}})^n\bigr) p_{\text{cond}}.
+    \label{eq:b3-abstain}
+  \end{equation}
+  \item \textbf{Quy ước chọn ngẫu nhiên đều từ toàn bộ $n$ ứng viên (random fallback khi $K=0$):}
+  \begin{equation}
+    P_{\text{fallback}}(n) = \bigl(1 - (1 - q_{\text{acc}})^n\bigr) p_{\text{cond}} + (1 - q_{\text{acc}})^n p_{\text{rej}}.
+    \label{eq:b3-fallback}
+  \end{equation}
+\end{enumerate}
+Cả hai quy ước đều hội tụ về cùng một giới hạn trần khi $n \to \infty$:
+\begin{equation}
+  \lim_{n \to \infty} P_{\text{abstain}}(n) = \lim_{n \to \infty} P_{\text{fallback}}(n) = p_{\text{cond}} = \frac{p \cdot \text{TPR}}{p \cdot \text{TPR} + (1 - p) \cdot \text{FPR}}.
+  \label{eq:b3-limit}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Trước hết chứng minh tính bất biến của phân phối có điều kiện khi $K = k \ge 1$. Với bất kỳ tập con $S \subseteq \{1, \dots, n\}$ có kích thước $|S| = k \ge 1$, do các cặp $(C_i, V_i)$ i.i.d.\ và ứng viên chọn $\hat{I}$ được lấy ngẫu nhiên đều trong $S$, với mọi $i \in S$:
+\[
+  P(C_i = 1 \mid A = S) = P(C_i = 1 \mid V_i = 1, \{V_j\}_{j \neq i}) = P(C_i = 1 \mid V_i = 1) = p_{\text{cond}}.
+\]
+Do đó:
+\[
+  P(C_{\hat{I}} = 1 \mid A = S) = \sum_{i \in S} \frac{1}{k} P(C_i = 1 \mid A = S) = p_{\text{cond}},
+\]
+không phụ thuộc vào $S$ hay $k \ge 1$. Lấy trung bình trên mọi $S \neq \emptyset$ suy ra $P(\text{đúng} \mid K \ge 1) = p_{\text{cond}}$. Vì $P(K \ge 1) = 1 - P(K = 0) = 1 - (1 - q_{\text{acc}})^n$:
+\begin{itemize}
+  \item Dưới quy ước từ chối ($P(\text{đúng} \mid K = 0) = 0$), áp dụng xác suất toàn phần thu được ngay \eqref{eq:b3-abstain}.
+  \item Dưới quy ước chọn ngẫu nhiên đều khi $K = 0$ (tức $V_1 = \dots = V_n = 0$), tương tự như trên, mỗi ứng viên $i$ đều có $P(C_i = 1 \mid V_1=\dots=V_n=0) = P(C_i = 1 \mid V_i = 0) = p_{\text{rej}}$, nên $P(\text{đúng} \mid K = 0) = p_{\text{rej}}$. Áp dụng xác suất toàn phần cho phân hoạch $\{K \ge 1, K = 0\}$ thu được \eqref{eq:b3-fallback}. Kiểm tra biên tại $n = 1$:
+  \[
+    P_{\text{fallback}}(1) = q_{\text{acc}} \frac{p \cdot \text{TPR}}{q_{\text{acc}}} + (1 - q_{\text{acc}}) \frac{p(1 - \text{TPR})}{1 - q_{\text{acc}}} = p \cdot \text{TPR} + p(1 - \text{TPR}) = p,
+  \]
+  khớp hoàn toàn với việc chọn ngẫu nhiên 1 mẫu duy nhất.
+\end{itemize}
+Cuối cùng, vì $q_{\text{acc}} \in (0, 1)$, ta có $0 < 1 - q_{\text{acc}} < 1 \implies \lim_{n \to \infty} (1 - q_{\text{acc}})^n = 0$. Cho $n \to \infty$ trong \eqref{eq:b3-abstain} và \eqref{eq:b3-fallback} đều cho giới hạn $p_{\text{cond}}$ như \eqref{eq:b3-limit}.
+\end{proof}
+
+\begin{remark}[Hệ quả thiết kế cho VeriStat]
+Công thức \eqref{eq:b3-limit} cho thấy khi $\text{FPR} > 0$, việc tăng $n \to \infty$ \emph{không thể} đưa độ chính xác lên $100\%$: các lời giải sai lọt qua bộ kiểm chứng (false positives) tạo ra một trần cứng $p_{\text{cond}} < 1$. Chính vì vậy, VeriStat thiết kế Hybrid Verifier 2 tầng (\texttt{tier1\_rules.py} chặn các lỗi kỹ thuật/bịa số ngay với $\text{FPR}$ bằng $0$ cho lỗi cú pháp, kết hợp \texttt{tier2\_llm.py} chấm rubric logic/đơn vị) để hạ $\text{FPR}$ xuống thấp nhất có thể, qua đó đẩy trần giới hạn $p_{\text{cond}}$ lên cao.
+\end{remark}
+
+% ----------------------------------------------------------------------
+\subsection{B.4. Cận Hối tiếc $O(\ln N(s))$ của Quy tắc UCT từ UCB1}
+\label{subsec:b4-uct}
+
+Tại một nút cây nội tại $s$ trong \textbf{MCTS-UCT} (\texttt{mcts.py}) với tập hành động hữu hạn $\mathcal{A}(s)$, giả sử tại bước thăm thứ $t \in \{1, \dots, N\}$ của nút $s$ (đặt $N := N(s)$), mỗi nhánh con $a \in \mathcal{A}(s)$ sinh phần thưởng ngẫu nhiên độc lập $X_{a,1}, X_{a,2}, \dots \in [0, 1]$ có kỳ vọng cố định $\mu_a \in [0, 1]$ (giả thiết bandit dừng của \textbf{UCB1}, Auer et al., 2002). Quy tắc UCT chọn nhánh chưa thăm nếu còn, ngược lại chọn:
+\[
+  a_t = \arg\max_{a \in \mathcal{A}(s)} \left[ \bar{Q}_{t-1}(s, a) + c \sqrt{\frac{\ln (t - 1)}{N_{t-1}(s, a)}} \right], \qquad c = \sqrt{2},
+\]
+trong đó $N_{t-1}(s, a)$ là số lần đã chọn nhánh $a$ trước lượt $t$ và $\bar{Q}_{t-1}(s, a)$ là trung bình phần thưởng của $a$. Đặt $\mu^\star := \max_{a \in \mathcal{A}(s)} \mu_a$ (giả sử đạt tại nhánh tối ưu $a^\star$) và khoảng cách dưới tối ưu $\Delta_a := \mu^\star - \mu_a > 0$ với mọi nhánh dưới tối ưu $a$.
+
+\begin{theorem}[Cận số lần chọn nhánh dưới tối ưu và Hối tiếc UCB1/UCT]
+\label{thm:b4-uct}
+Dưới giả thiết phần thưởng i.i.d.\ trong $[0, 1]$ và hằng số khám phá $c = \sqrt{2}$, số lần kỳ vọng chọn bất kỳ nhánh dưới tối ưu $a$ ($\Delta_a > 0$) sau $N = N(s)$ lượt tại nút $s$ thỏa mãn:
+\begin{equation}
+  \mathbb{E}[N_N(s, a)] \le \frac{8 \ln N}{\Delta_a^2} + 1 + \frac{\pi^2}{3},
+  \label{eq:b4-pulls}
+\end{equation}
+và do đó hối tiếc tích lũy kỳ vọng tại nút $s$ đạt bậc logarit:
+\begin{equation}
+  \mathbb{E}[R_N(s)] := \sum_{a : \Delta_a > 0} \Delta_a \, \mathbb{E}[N_N(s, a)] \le \sum_{a : \Delta_a > 0} \left( \frac{8 \ln N}{\Delta_a} + \left(1 + \frac{\pi^2}{3}\right)\Delta_a \right) = O(\ln N(s)).
+  \label{eq:b4-regret}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Gọi $\ell := \left\lceil \frac{8 \ln N}{\Delta_a^2} \right\rceil$ là ngưỡng số lần kéo. Trước hết, xét tổng số lần chọn $a$ sau khi tất cả các nhánh đều được khởi tạo 1 lần:
+\[
+  N_N(s, a) \le \ell + \sum_{t=|\mathcal{A}(s)|+1}^{N} \mathbb{I}\bigl[a_t = a,\; N_{t-1}(s, a) \ge \ell\bigr].
+\]
+Xét một lượt $t \le N$ mà $a_t = a$ và $N_{t-1}(s, a) \ge \ell$. Đặt $u = N_{t-1}(s, a^\star) \ge 1$ và $v = N_{t-1}(s, a) \ge \ell$. Vì UCT chọn $a$ thay vì $a^\star$, chỉ số UCB của $a$ phải không nhỏ hơn của $a^\star$:
+\begin{equation}
+  \bar{Q}_{a, v} + \sqrt{\frac{2 \ln (t-1)}{v}} \ge \bar{Q}_{a^\star, u} + \sqrt{\frac{2 \ln (t-1)}{u}},
+  \label{eq:b4-uct-ineq}
+\end{equation}
+với $\bar{Q}_{a, v}$ là trung bình mẫu sau $v$ lần kéo nhánh $a$ (nhờ $c = \sqrt{2} \implies c^2 = 2$). Để \eqref{eq:b4-uct-ineq} xảy ra, ít nhất một trong ba sự kiện sau đây \emph{bắt buộc phải xảy ra}:
+\begin{align*}
+  E_1(t, u) &: \quad \bar{Q}_{a^\star, u} \le \mu^\star - \sqrt{\frac{2 \ln (t-1)}{u}}, \\
+  E_2(t, v) &: \quad \bar{Q}_{a, v} \ge \mu_a + \sqrt{\frac{2 \ln (t-1)}{v}}, \\
+  E_3(t, v) &: \quad \mu^\star - \mu_a < 2 \sqrt{\frac{2 \ln (t-1)}{v}}.
+\end{align*}
+Thật vậy, nếu cả ba sự kiện đồng thời sai thì:
+\[
+  \bar{Q}_{a^\star, u} + \sqrt{\frac{2 \ln (t-1)}{u}} > \mu^\star = \mu_a + \Delta_a \ge \mu_a + 2\sqrt{\frac{2\ln(t-1)}{v}} > \bar{Q}_{a, v} + \sqrt{\frac{2\ln(t-1)}{v}},
+\]
+mâu thuẫn với \eqref{eq:b4-uct-ineq}. Tuy nhiên, vì $v \ge \ell \ge \frac{8 \ln N}{\Delta_a^2}$ và $t - 1 < N$, ta luôn có:
+\[
+  2\sqrt{\frac{2 \ln (t-1)}{v}} \le 2\sqrt{\frac{2 \ln N}{8 \ln N / \Delta_a^2}} = \Delta_a = \mu^\star - \mu_a,
+\]
+nên sự kiện $E_3(t, v)$ \textbf{không thể xảy ra}. Áp dụng bất đẳng thức Hoeffding cho các biến bị chặn trong $[0, 1]$ (lưu ý $2 c^2 = 4$):
+\[
+  P(E_1(t, u)) \le \exp\!\left(-2u \cdot \frac{2 \ln(t-1)}{u}\right) = (t-1)^{-4}, \qquad
+  P(E_2(t, v)) \le \exp\!\left(-2v \cdot \frac{2 \ln(t-1)}{v}\right) = (t-1)^{-4}.
+\]
+Dùng Union Bound trên mọi giá trị khả dĩ $1 \le u \le t - 1$ và $\ell \le v \le t - 1$:
+\begin{align*}
+  \mathbb{E}[N_N(s, a)]
+  &\le \ell + \sum_{t=2}^{N} \sum_{u=1}^{t-1} \sum_{v=\ell}^{t-1} \bigl(P(E_1(t, u)) + P(E_2(t, v))\bigr) \\
+  &\le \left\lceil \frac{8 \ln N}{\Delta_a^2} \right\rceil + \sum_{t=2}^{N} \sum_{u=1}^{t-1} \sum_{v=1}^{t-1} 2 (t-1)^{-4} \\
+  &\le \frac{8 \ln N}{\Delta_a^2} + 1 + 2 \sum_{m=1}^{\infty} m^2 \cdot m^{-4} = \frac{8 \ln N}{\Delta_a^2} + 1 + 2 \sum_{m=1}^{\infty} \frac{1}{m^2} = \frac{8 \ln N}{\Delta_a^2} + 1 + \frac{\pi^2}{3},
+\end{align*}
+trong đó sử dụng đẳng thức Basel $\sum_{m=1}^\infty m^{-2} = \pi^2 / 6$. Nhân mỗi hạng tử với $\Delta_a$ và cộng trên các nhánh dưới tối ưu thu được \eqref{eq:b4-regret}.
+\end{proof}
+
+\begin{remark}[Giới hạn từ Bandit dừng sang Cây MCTS không dừng]
+Chứng minh trên cho mỗi nút dựa trên giả thiết phần thưởng dừng (stationary) của UCB1. Trong cây MCTS nhiều tầng, chính sách tại các nút con cũng tiến hóa theo thời gian khi cây được mở rộng, làm phân phối phần thưởng truyền ngược về nút $s$ trở nên \emph{không dừng} (non-stationary). Theo Kocsis \& Szepesvári (2006), bằng quy nạp từ lá lên gốc trên cây hữu hạn, tốc độ hội tụ độ lệch trung bình tại các nút sâu đảm bảo độ trôi phân phối giảm nhanh đủ để UCT vẫn duy trì mức hối tiếc $O(\ln N(s))$ tiệm cận và xác suất chọn sai gốc tiến về $0$.
+\end{remark}
+
+% ----------------------------------------------------------------------
+\subsection{B.5. Bỏ phiếu Tuần tự Dừng sớm: Tương đương Đầu ra và Kỳ vọng Số lời gọi}
+\label{subsec:b5-early-stop}
+
+Xét thuật toán \textbf{Self-Consistency dừng sớm tuần tự} (\texttt{early\_stop=True} trong \texttt{sc.py}) với ngân sách tối đa $n \ge 3$ lượt gọi, ngưỡng quá bán tuyệt đối $m := \lfloor n/2 \rfloor + 1$. Với dãy mẫu i.i.d.\ $\hat{y}_1, \hat{y}_2, \dots, \hat{y}_n$, ký hiệu $C_t(y) = \sum_{i=1}^t \mathbb{I}[\hat{y}_i = y]$ là số phiếu của đáp án $y$ sau $t$ lượt ($1 \le t \le n$). Thời điểm dừng được định nghĩa là:
+\[
+  T := \min\Bigl(\bigl\{t \in \{1, \dots, n\} : \max_y C_t(y) \ge m\bigr\} \cup \{n\}\Bigr).
+\]
+Thuật toán trả về $\hat{y}_{\text{early}} \in \arg\max_y C_T(y)$ (phá hòa theo thứ tự xuất hiện đầu tiên), còn bản đầy đủ chạy hết $n$ lượt và trả về $\hat{y}_{\text{full}} \in \arg\max_y C_n(y)$.
+
+\begin{theorem}[Tính tương đương đầu ra và Tiết kiệm lời gọi của Dừng sớm]
+\label{thm:b5-early-stop}
+Với mọi $n \ge 1$ và mọi dãy kết quả thực hiện $(\hat{y}_1, \dots, \hat{y}_n)$ (nhị phân lẫn đa lớp):
+\begin{enumerate}
+  \item \textbf{Tương đương tuyệt đối đầu ra:} $\hat{y}_{\text{early}} = \hat{y}_{\text{full}}$ với xác suất $1$.
+  \item \textbf{Bất đẳng thức kỳ vọng số lời gọi:} Trong mô hình nhị phân với $X_i \stackrel{\text{i.i.d.}}{\sim} \text{Bernoulli}(p)$, $p \in (0, 1)$, và mọi $n \ge 3$, kỳ vọng số lời gọi $\mathbb{E}[T]$ thỏa mãn chặt:
+  \begin{equation}
+    \mathbb{E}[T] = \sum_{t=0}^{n-1} P(T > t) \le n - (n - m)\bigl(p^m + (1 - p)^m\bigr) < n.
+    \label{eq:b5-expected-calls}
+  \end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{Phần 1 (Tương đương đầu ra):} Xét hai trường hợp loại trừ nhau cho một quỹ đạo thực hiện bất kỳ:
+\begin{itemize}
+  \item Nếu $T = n$, thuật toán dừng sớm đọc toàn bộ $n$ mẫu giống hệt bản đầy đủ và dùng cùng quy tắc phá hòa, nên hiển nhiên $\hat{y}_{\text{early}} = \hat{y}_{\text{full}}$.
+  \item Nếu $T < n$, tồn tại một đáp án duy nhất $y^\star$ đạt $C_T(y^\star) = m = \lfloor n/2 \rfloor + 1$ tại bước $T$ (không thể có hai đáp án cùng $\ge m$ vì $2m > n$). Vì $C_t(y^\star)$ không giảm theo $t$, tại cuối chuỗi $n$ ta có $C_n(y^\star) \ge C_T(y^\star) = m$. Trong khi đó, mọi đáp án khác $y \neq y^\star$ bị chặn trên bởi tổng số phiếu còn lại:
+  \[
+    C_n(y) \le n - C_n(y^\star) \le n - m = n - \left(\left\lfloor \frac{n}{2} \right\rfloor + 1\right) \le \left\lfloor \frac{n}{2} \right\rfloor < m \le C_n(y^\star).
+  \]
+  Do đó $y^\star$ là \emph{người thắng tuyệt đối duy nhất} của toàn bộ dãy $n$ mẫu ($\hat{y}_{\text{full}} = y^\star = \hat{y}_{\text{early}}$), bất kể kết quả của $n - T$ mẫu chưa sinh có phân bố thế nào. Chứng minh này đúng cho cả bài toán nhị phân và đa lớp $K \ge 2$.
+\end{itemize}
+
+\textbf{Phần 2 (Kỳ vọng số lời gọi):} Vì $T \in \{m, m+1, \dots, n\}$ là biến ngẫu nhiên nguyên không âm, theo đẳng thức tổng đuôi (tail-sum identity):
+\[
+  \mathbb{E}[T] = \sum_{t=0}^{n-1} P(T > t).
+\]
+Với $0 \le t < m$, chưa thể có lớp nào đạt $m$ phiếu nên $P(T > t) = 1$. Với $m \le t \le n - 1$, sự kiện $\{T > t\}$ có nghĩa là sau $t$ lượt đầu, cả lớp đúng lẫn lớp sai đều có ít hơn $m$ phiếu, tức $\max(C_t(1), C_t(0)) \le m - 1$ (trong đó $C_t(0) = t - C_t(1)$). Do đó:
+\[
+  P(T > t) = \sum_{c_1 = \max(0,\, t - m + 1)}^{\min(t,\, m - 1)} \binom{t}{c_1} p^{c_1}(1 - p)^{t - c_1}.
+\]
+Đặc biệt, với mọi $t \in \{m, \dots, n - 1\}$, hai sự kiện rời nhau ``$m$ mẫu đầu tiên đều đúng'' (xác suất $p^m$) và ``$m$ mẫu đầu tiên đều sai'' (xác suất $(1 - p)^m$) đều buộc $T \le m \le t$, do đó không thuộc $\{T > t\}$. Suy ra:
+\[
+  P(T > t) \le 1 - \bigl(p^m + (1 - p)^m\bigr), \qquad \forall t \in \{m, \dots, n - 1\}.
+\]
+Vì $n \ge 3 \implies m = \lfloor n/2 \rfloor + 1 \le n - 1$, có ít nhất $n - m \ge 1$ chỉ số $t \in \{m, \dots, n-1\}$; với $p \in (0, 1)$, ta có $p^m + (1 - p)^m > 0$. Cộng tổng từ $t = 0$ đến $n - 1$ thu được:
+\[
+  \mathbb{E}[T] = m + \sum_{t=m}^{n-1} P(T > t) \le m + (n - m)\Bigl(1 - p^m - (1 - p)^m\Bigr) = n - (n - m)\bigl(p^m + (1 - p)^m\bigr) < n.
+\]
+\end{proof}
+
+Bảng~\ref{tab:b5-verify} tóm tắt giá trị chính xác $\mathbb{E}[T]$ tính bằng công thức tổng đuôi nhị thức trong \texttt{scripts/verify\_theory\_c.py} cho $p = 0{,}6$ trên các mốc $n \in \{3, 5, 8, 15\}$ của VeriStat.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Kỳ vọng số lời gọi $\mathbb{E}[T]$ và tỷ lệ tiết kiệm của Self-Consistency dừng sớm ($p = 0.6$).}
+  \label{tab:b5-verify}
+  \begin{tabular}{cccc}
+    \toprule
+    Ngân sách $n$ & Ngưỡng đa số $m$ & Kỳ vọng lời gọi $\mathbb{E}[T]$ & Tiết kiệm trung bình ($n - \mathbb{E}[T]$) \\
+    \midrule
+    3  & 2 & 2.4800 & 0.5200 (17.33\%) \\
+    5  & 3 & 4.0656 & 0.9344 (18.69\%) \\
+    8  & 5 & 7.1216 & 0.8784 (10.98\%) \\
+    15 & 8 & 12.3929 & 2.6071 (17.38\%) \\
+    \bottomrule
+  \end{tabular}
+\end{table}

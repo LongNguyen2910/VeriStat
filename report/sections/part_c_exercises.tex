@@ -1,0 +1,187 @@
+\section{Bài tập Lý thuyết và Phân tích Định tính (Phần C)}
+\label{sec:part-c}
+
+Toàn bộ kết quả số học trong các bài tập C.1--C.3 dưới đây được tính giải tích từng bước và đối chiếu chéo tự động bằng script \texttt{scripts/verify\_theory\_c.py}.
+
+% ----------------------------------------------------------------------
+\subsection{C.1. Bỏ phiếu Đa số Chính xác vs. Cận Hoeffding với $p = 0{,}6$}
+\label{subsec:c1}
+
+\paragraph{Đề bài.}
+Cho mỗi quỹ đạo tác tử độc lập trả lời đúng với xác suất $p = 0{,}6$. Tính chính xác xác suất bỏ phiếu đa số đúng $P_{\text{exact}}(n)$ cho $n \in \{1, 5, 15\}$ và đối chiếu với cận dưới Hoeffding từ Định lý~\ref{thm:b2-binary}.
+
+\paragraph{Lời giải giải tích.}
+Với $n$ lẻ, ngưỡng đa số là $m = \lfloor n/2 \rfloor + 1 = \frac{n + 1}{2}$, số phiếu đúng $S_n \sim \text{Binomial}(n, 0{,}6)$, nên:
+\[
+  P_{\text{exact}}(n) = \sum_{k=m}^{n} \binom{n}{k} (0{,}6)^k (0{,}4)^{n-k}, \qquad
+  P_{\text{Hoeffding}}(n) = 1 - \exp\!\bigl(-2n(0{,}6 - 0{,}5)^2\bigr) = 1 - e^{-0{,}02 n}.
+\]
+Tính chi tiết cho từng giá trị $n$:
+\begin{itemize}
+  \item \textbf{Với $n = 1$ ($m = 1$):}
+  \[
+    P_{\text{exact}}(1) = \binom{1}{1}(0{,}6)^1 = 0.600000, \qquad
+    P_{\text{Hoeffding}}(1) = 1 - e^{-0{,}02} \approx 0.019801.
+  \]
+  \item \textbf{Với $n = 5$ ($m = 3$):}
+  \begin{align*}
+    P_{\text{exact}}(5)
+    &= \binom{5}{3}(0{,}6)^3(0{,}4)^2 + \binom{5}{4}(0{,}6)^4(0{,}4)^1 + \binom{5}{5}(0{,}6)^5 \\
+    &= 10 \cdot 0.216 \cdot 0.16 + 5 \cdot 0.1296 \cdot 0.4 + 0.07776 \\
+    &= 0.34560 + 0.25920 + 0.07776 = 0.68256, \\
+    P_{\text{Hoeffding}}(5) &= 1 - e^{-0{,}10} \approx 0.095163.
+  \end{align*}
+  \item \textbf{Với $n = 15$ ($m = 8$):}
+  \begin{align*}
+    P_{\text{exact}}(15) &= \sum_{k=8}^{15} \binom{15}{k}(0{,}6)^k(0{,}4)^{15-k} \approx 0.786897, \\
+    P_{\text{Hoeffding}}(15) &= 1 - e^{-0{,}30} \approx 0.259182.
+  \end{align*}
+\end{itemize}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Đối chiếu xác suất bỏ phiếu đa số chính xác và cận dưới Hoeffding ($p = 0.6$).}
+  \label{tab:c1-comparison}
+  \begin{tabular}{ccccc}
+    \toprule
+    Số mẫu $n$ & Ngưỡng $m$ & Chính xác $P_{\text{exact}}(n)$ & Cận dưới Hoeffding & Độ chênh (Gap) \\
+    \midrule
+    1  & 1 & 0.600000 & 0.019801 & 0.580199 \\
+    5  & 3 & 0.68256  & 0.095163 & 0.587397 \\
+    15 & 8 & 0.786897 & 0.259182 & 0.527715 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Nhận xét.}
+Bảng~\ref{tab:c1-comparison} cho thấy cận Hoeffding rất lỏng khi $n$ nhỏ và biên $p - 0{,}5 = 0{,}1$ hẹp: bất đẳng thức Hoeffding chỉ sử dụng khoảng giá trị $[0, 1]$ (phương sai tối đa giả định $1/4$) và bỏ qua cấu trúc phân phối nhị thức cụ thể. Ở $n = 15$, xác suất thực tế đã đạt $78{,}69\%$ (tăng $+18{,}69$ điểm phần trăm so với $n = 1$), trong khi cận dưới Hoeffding mới đạt $25{,}92\%$; cận này chủ yếu có ý nghĩa khẳng định tốc độ hội tụ hàm mũ $O(e^{-0{,}02 n})$ khi $n$ lớn.
+
+% ----------------------------------------------------------------------
+\subsection{C.2. Best-of-$n$ với Bộ kiểm chứng Không hoàn hảo ($p = 0{,}3, \text{TPR} = 0{,}9, \text{FPR} = 0{,}1$)}
+\label{subsec:c2}
+
+\paragraph{Đề bài.}
+Cho mô hình nền có xác suất sinh lời giải đúng là $p = 0{,}3$ và bộ kiểm chứng có $\text{TPR} = 0{,}9$, $\text{FPR} = 0{,}1$. Tính xác suất chọn đúng của Best-of-$n$ cho $n \in \{1, 4, 16\}$ và giới hạn khi $n \to \infty$ theo Định lý~\ref{thm:b3-best-of-n}, kèm phân tích giới hạn của \emph{test-time compute}.
+
+\paragraph{Các hằng số trung gian.}
+Áp dụng các công thức ở Định lý~\ref{thm:b3-best-of-n}:
+\begin{align*}
+  q_{\text{acc}} &= p \cdot \text{TPR} + (1 - p) \cdot \text{FPR} = 0{,}3 \cdot 0{,}9 + 0{,}7 \cdot 0{,}1 = 0.27 + 0.07 = 0.34, \\
+  p_{\text{cond}} &= \frac{p \cdot \text{TPR}}{q_{\text{acc}}} = \frac{0.27}{0.34} = \frac{27}{34} \approx 0.794118, \\
+  p_{\text{rej}} &= \frac{p(1 - \text{TPR})}{1 - q_{\text{acc}}} = \frac{0.3 \cdot 0.1}{1 - 0.34} = \frac{0.03}{0.66} = \frac{1}{22} \approx 0.045455.
+\end{align*}
+
+\paragraph{Tính cho $n \in \{1, 4, 16\}$ và kiểm chứng Monte Carlo.}
+Dưới hai quy ước khi không có ứng viên nào được chấp nhận ($K = 0$):
+\[
+  P_{\text{abstain}}(n) = \bigl(1 - 0.66^n\bigr) \cdot \frac{27}{34}, \qquad
+  P_{\text{fallback}}(n) = \bigl(1 - 0.66^n\bigr) \cdot \frac{27}{34} + 0.66^n \cdot \frac{1}{22}.
+\]
+\begin{itemize}
+  \item \textbf{$n = 1$:} $1 - 0.66^1 = 0.34 \implies P_{\text{abstain}}(1) = 0.270000$, $P_{\text{fallback}}(1) = 0.27 + 0.03 = 0.300000$ (bằng đúng $p$).
+  \item \textbf{$n = 4$:} $0.66^4 = 0.18974736$, $1 - 0.66^4 = 0.810253 \implies P_{\text{abstain}}(4) = 0.643436$, $P_{\text{fallback}}(4) = 0.652061$.
+  \item \textbf{$n = 16$:} $0.66^{16} \approx 0.001296$, $1 - 0.66^{16} \approx 0.998704 \implies P_{\text{abstain}}(16) = 0.793088$, $P_{\text{fallback}}(16) = 0.793147$.
+  \item \textbf{Giới hạn $n \to \infty$:} Vì $0.66^n \to 0$, cả hai quy ước đều hội tụ về
+  \[
+    \lim_{n \to \infty} P_{\text{abstain}}(n) = \lim_{n \to \infty} P_{\text{fallback}}(n) = \frac{27}{34} \approx 0.794118 \quad (79.41\%).
+  \]
+\end{itemize}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Xác suất chọn đúng của Best-of-$n$ ($p=0.3, \text{TPR}=0.9, \text{FPR}=0.1$) và kiểm chứng Monte Carlo ($100{,}000$ lần thử, \texttt{seed=42}).}
+  \label{tab:c2-results}
+  \begin{tabular}{cccccc}
+    \toprule
+    $n$ & $P(K \ge 1)$ & $P_{\text{abstain}}$ (Giải tích) & $P_{\text{abstain}}$ (MC) & $P_{\text{fallback}}$ (Giải tích) & $P_{\text{fallback}}$ (MC) \\
+    \midrule
+    1  & 0.340000 & 0.270000 & 0.26899 & 0.300000 & 0.29935 \\
+    4  & 0.810253 & 0.643436 & 0.64130 & 0.652061 & 0.65011 \\
+    16 & 0.998704 & 0.793088 & 0.79323 & 0.793147 & 0.79326 \\
+    $\infty$ & 1.000000 & 0.794118 & --- & 0.794118 & --- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Phân tích giới hạn của test-time compute.}
+Dù chi phí tính toán khi suy luận (test-time compute) tăng gấp $16\times$ từ $n = 1$ lên $n = 16$, độ chính xác bão hòa nhanh: từ $n = 1 \to 4$ tăng mạnh thêm $+35{,}21$ điểm phần trăm ($30{,}00\% \to 65{,}21\%$), nhưng từ $n = 4 \to 16$ tăng thêm $+14{,}11$ điểm ($65{,}21\% \to 79{,}31\%$), và từ $n = 16 \to \infty$ chỉ còn dư địa chưa tới $0{,}10$ điểm phần trăm trước trần $79{,}41\%$. Hiện tượng này chứng minh rằng \textbf{tăng ngân sách lấy mẫu đơn thuần bị chặn trên bởi độ chính xác của bộ kiểm chứng} (tỷ lệ dương tính giả $\text{FPR} = 0{,}1$ khiến gần $20{,}6\%$ các mẫu lọt qua là lời giải sai). Để vượt qua trần này cần cải thiện bộ kiểm chứng (như Hybrid Verifier Tầng 1 + Tầng 2 của VeriStat) hoặc tìm kiếm theo từng bước (MCTS-UCT) thay vì chỉ chọn lại quỹ đạo độc lập.
+
+% ----------------------------------------------------------------------
+\subsection{C.3. Minh họa Tính tay 2 Vòng MCTS với Quy tắc UCT ($c = \sqrt{2}$)}
+\label{subsec:c3}
+
+\paragraph{Ghi chú phạm vi.}
+Do chưa có cây quyết định riêng từ giảng viên tại thời điểm lập báo cáo, phần này trình bày chi tiết từng bước tính tay 2 vòng MCTS trên cây minh họa chuẩn \texttt{Illustrative\_VeriStat\_2Round\_Tree} được cài đặt và kiểm chứng số học tự động trong \texttt{scripts/verify\_theory\_c.py} (hàm \texttt{trace\_c3\_mcts\_two\_rounds}). Cấu trúc bảng dưới đây sẵn sàng thay thế ngay khi giảng viên cấp cây bài tập chính thức.
+
+\paragraph{Trạng thái khởi tạo (trước Vòng 1).}
+Cây ban đầu có các bộ $(N, W, Q = W/N)$:
+\begin{itemize}
+  \item \texttt{root}: $(4, 2.2, 0.5500)$, có hai con \texttt{A1} $(2, 1.3, 0.6500)$ và \texttt{A2} $(2, 0.9, 0.4500)$.
+  \item \texttt{A1} có hai con lá: \texttt{B1} $(1, 0.8, 0.8000)$ (hành động chờ mở rộng \texttt{D1} cho giá trị $v = 0.90$) và \texttt{B2} $(1, 0.5, 0.5000)$ (hành động chờ mở rộng \texttt{E1} cho giá trị $v = 0.60$).
+  \item \texttt{A2} có một con lá: \texttt{C1} $(2, 0.9, 0.4500)$.
+\end{itemize}
+Công thức UCT sử dụng $c = \sqrt{2} \approx 1.414214$:
+\[
+  \text{UCT}(s, a) = Q(s, a) + \sqrt{2} \sqrt{\frac{\ln N(s)}{N(s, a)}}.
+\]
+
+\paragraph{Vòng 1 (Selection $\to$ Expansion $\to$ Evaluation $\to$ Backpropagation).}
+\begin{enumerate}
+  \item \textbf{Selection tại \texttt{root} ($N(\text{root}) = 4$):}
+  \begin{align*}
+    \text{UCT}(\text{root}, \text{A1}) &= 0.6500 + \sqrt{2}\sqrt{\frac{\ln 4}{2}} = 0.6500 + 1.177410 = 1.8274, \\
+    \text{UCT}(\text{root}, \text{A2}) &= 0.4500 + \sqrt{2}\sqrt{\frac{\ln 4}{2}} = 0.4500 + 1.177410 = 1.6274.
+  \end{align*}
+  Chọn \textbf{\texttt{A1}} ($1.8274 > 1.6274$).
+  \item \textbf{Selection tại \texttt{A1} ($N(\text{A1}) = 2$):}
+  \begin{align*}
+    \text{UCT}(\text{A1}, \text{B1}) &= 0.8000 + \sqrt{2}\sqrt{\frac{\ln 2}{1}} = 0.8000 + 1.177410 = 1.9774, \\
+    \text{UCT}(\text{A1}, \text{B2}) &= 0.5000 + \sqrt{2}\sqrt{\frac{\ln 2}{1}} = 0.5000 + 1.177410 = 1.6774.
+  \end{align*}
+  Chọn \textbf{\texttt{B1}} ($1.9774 > 1.6774$). Đường chọn Vòng 1 là $\texttt{root} \to \texttt{A1} \to \texttt{B1}$.
+  \item \textbf{Expansion \& Evaluation:} Tại lá \texttt{B1}, mở rộng nút con mới \textbf{\texttt{D1}} và đánh giá được giá trị $v(\texttt{D1}) = 0.90$.
+  \item \textbf{Backpropagation} dọc đường $\texttt{D1} \to \texttt{B1} \to \texttt{A1} \to \texttt{root}$ (cộng $N \leftarrow N+1$, $W \leftarrow W+0.90$): xem Bảng~\ref{tab:c3-trace}.
+\end{enumerate}
+
+\paragraph{Vòng 2 (Selection $\to$ Expansion $\to$ Evaluation $\to$ Backpropagation).}
+\begin{enumerate}
+  \item \textbf{Selection tại \texttt{root} ($N(\text{root}) = 5$):}
+  \begin{align*}
+    \text{UCT}(\text{root}, \text{A1}) &= 0.7333 + \sqrt{2}\sqrt{\frac{\ln 5}{3}} = 0.733333 + 1.035837 = 1.7692, \\
+    \text{UCT}(\text{root}, \text{A2}) &= 0.4500 + \sqrt{2}\sqrt{\frac{\ln 5}{2}} = 0.450000 + 1.268636 = 1.7186.
+  \end{align*}
+  Tiếp tục chọn \textbf{\texttt{A1}} ($1.7692 > 1.7186$).
+  \item \textbf{Selection tại \texttt{A1} ($N(\text{A1}) = 3$):}
+  \begin{align*}
+    \text{UCT}(\text{A1}, \text{B1}) &= 0.8500 + \sqrt{2}\sqrt{\frac{\ln 3}{2}} = 0.850000 + 1.048147 = 1.8981, \\
+    \text{UCT}(\text{A1}, \text{B2}) &= 0.5000 + \sqrt{2}\sqrt{\frac{\ln 3}{1}} = 0.500000 + 1.482304 = 1.9823.
+  \end{align*}
+  Nhờ hạng tử khám phá tăng lên khi $N(\text{A1})$ tăng còn $N(\text{B2})=1$, UCT chuyển sang chọn \textbf{\texttt{B2}} ($1.9823 > 1.8981$). Đường chọn Vòng 2 là $\texttt{root} \to \texttt{A1} \to \texttt{B2}$.
+  \item \textbf{Expansion \& Evaluation:} Tại \texttt{B2}, mở rộng nút con mới \textbf{\texttt{E1}} và đánh giá được $v(\texttt{E1}) = 0.60$.
+  \item \textbf{Backpropagation} dọc đường $\texttt{E1} \to \texttt{B2} \to \texttt{A1} \to \texttt{root}$ (cộng $N \leftarrow N+1$, $W \leftarrow W+0.60$): kết quả cập nhật tổng hợp ở Bảng~\ref{tab:c3-trace}.
+\end{enumerate}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Bảng cập nhật $(N, W, Q)$ qua 2 vòng MCTS-UCT ($c = \sqrt{2}$) cho bài C.3.}
+  \label{tab:c3-trace}
+  \begin{tabular}{cccc}
+    \toprule
+    Nút & Khởi tạo $(N, W, Q)$ & Sau Vòng 1 $(N, W, Q)$ & Sau Vòng 2 $(N, W, Q)$ \\
+    \midrule
+    \texttt{root} & $(4,\, 2.20,\, 0.5500)$ & $(5,\, 3.10,\, 0.6200)$ & $(6,\, 3.70,\, 0.6167)$ \\
+    \texttt{A1}   & $(2,\, 1.30,\, 0.6500)$ & $(3,\, 2.20,\, 0.7333)$ & $(4,\, 2.80,\, 0.7000)$ \\
+    \texttt{A2}   & $(2,\, 0.90,\, 0.4500)$ & $(2,\, 0.90,\, 0.4500)$ & $(2,\, 0.90,\, 0.4500)$ \\
+    \texttt{B1}   & $(1,\, 0.80,\, 0.8000)$ & $(2,\, 1.70,\, 0.8500)$ & $(2,\, 1.70,\, 0.8500)$ \\
+    \texttt{B2}   & $(1,\, 0.50,\, 0.5000)$ & $(1,\, 0.50,\, 0.5000)$ & $(2,\, 1.10,\, 0.5500)$ \\
+    \texttt{D1}   & ---                     & $(1,\, 0.90,\, 0.9000)$ & $(1,\, 0.90,\, 0.9000)$ \\
+    \texttt{E1}   & ---                     & ---                     & $(1,\, 0.60,\, 0.6000)$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ----------------------------------------------------------------------
+\subsection{C.4. Phân loại Lỗi Tác tử trên 50 Vết Thực thi Thật}
+\label{subsec:c4}
+
+Phần này sẽ được điền sau khi hoàn tất chạy thực nghiệm trên tập kiểm tra \texttt{benchmark\_400} (Giai đoạn 2, Ngày 6--8), lấy mẫu phân tầng 50 vết thực thi bằng \texttt{scripts/prepare\_c4\_traces.py} và gán nhãn mù bởi 2 thành viên theo 6 mã lỗi chuẩn trong \texttt{docs/error\_taxonomy\_guide.md} (mục tiêu đồng thuận Cohen's $\kappa \ge 0{,}75$).
